@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zonectmac.github.io/"/>
-  <updated>2016-09-01T15:51:37.312Z</updated>
+  <updated>2016-09-03T14:09:38.959Z</updated>
   <id>http://zonectmac.github.io/</id>
   
   <author>
@@ -14,6 +14,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>测试文章</title>
+    <link href="http://zonectmac.github.io/2016/09/03/hexo-test/"/>
+    <id>http://zonectmac.github.io/2016/09/03/hexo-test/</id>
+    <published>2016-09-03T13:59:10.000Z</published>
+    <updated>2016-09-03T14:09:38.959Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="biaoti"><a href="#biaoti" class="headerlink" title="biaoti"></a>biaoti</h1><h3 id="baagaagar"><a href="#baagaagar" class="headerlink" title="baagaagar"></a>baagaagar</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;biaoti&quot;&gt;&lt;a href=&quot;#biaoti&quot; class=&quot;headerlink&quot; title=&quot;biaoti&quot;&gt;&lt;/a&gt;biaoti&lt;/h1&gt;&lt;h3 id=&quot;baagaagar&quot;&gt;&lt;a href=&quot;#baagaagar&quot; class=&quot;headerlink
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
