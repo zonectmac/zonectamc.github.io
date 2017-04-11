@@ -4,9 +4,9 @@
   <subtitle>哈哈哈Camera</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://zonectmac.github.io/"/>
+  <link href="http://zonectmac.com/"/>
   <updated>2016-09-03T14:09:38.959Z</updated>
-  <id>http://zonectmac.github.io/</id>
+  <id>http://zonectmac.com/</id>
   
   <author>
     <name>ZonecTmac</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>测试文章</title>
-    <link href="http://zonectmac.github.io/2016/09/03/hexo-test/"/>
-    <id>http://zonectmac.github.io/2016/09/03/hexo-test/</id>
+    <link href="http://zonectmac.com/2016/09/03/hexo-test/"/>
+    <id>http://zonectmac.com/2016/09/03/hexo-test/</id>
     <published>2016-09-03T13:59:10.000Z</published>
     <updated>2016-09-03T14:09:38.959Z</updated>
     
@@ -35,8 +35,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://zonectmac.github.io/2016/09/01/hello-world/"/>
-    <id>http://zonectmac.github.io/2016/09/01/hello-world/</id>
+    <link href="http://zonectmac.com/2016/09/01/hello-world/"/>
+    <id>http://zonectmac.com/2016/09/01/hello-world/</id>
     <published>2016-09-01T15:51:37.311Z</published>
     <updated>2016-09-01T15:51:37.312Z</updated>
     
