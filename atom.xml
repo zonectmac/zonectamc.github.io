@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zonectmac.com/"/>
-  <updated>2016-09-03T14:09:38.959Z</updated>
+  <updated>2017-04-11T15:32:52.995Z</updated>
   <id>http://zonectmac.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://zonectmac.com/2016/09/03/hexo-test/"/>
     <id>http://zonectmac.com/2016/09/03/hexo-test/</id>
     <published>2016-09-03T13:59:10.000Z</published>
-    <updated>2016-09-03T14:09:38.959Z</updated>
+    <updated>2017-04-11T15:32:52.995Z</updated>
     
     <content type="html"><![CDATA[<h1 id="biaoti"><a href="#biaoti" class="headerlink" title="biaoti"></a>biaoti</h1><h3 id="baagaagar"><a href="#baagaagar" class="headerlink" title="baagaagar"></a>baagaagar</h3>]]></content>
     
@@ -30,6 +30,10 @@
     
     </summary>
     
+    
+      <category term="test" scheme="http://zonectmac.com/tags/test/"/>
+    
+      <category term="hexo" scheme="http://zonectmac.com/tags/hexo/"/>
     
   </entry>
   
