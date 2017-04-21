@@ -1,28 +1,421 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>信笺叶子</title>
-  <subtitle>哈哈哈Camera</subtitle>
-  <link href="/atom.xml" rel="self"/>
+<!doctype html>
+
+
+
   
-  <link href="http://zonectmac.com/"/>
-  <updated>2017-04-21T17:36:52.753Z</updated>
-  <id>http://zonectmac.com/</id>
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
-  <author>
-    <name>ZonecTmac</name>
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
     
-  </author>
-  
-  <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>实现发送邮箱的几种方法</title>
-    <link href="http://zonectmac.com/2017/04/22/send-email/"/>
-    <id>http://zonectmac.com/2017/04/22/send-email/</id>
-    <published>2017-04-21T16:18:11.000Z</published>
-    <updated>2017-04-21T17:36:52.753Z</updated>
     
-    <content type="html"><![CDATA[<blockquote>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="sendEmail,python,Java,VBScript,telnet," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="信笺叶子" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="以下为众多方法中的几种，后面继续补充。。。。。
+
+###一、telnet windows下使用cmd（命令行）发送邮件
+#####　　1、windows开启telnet服务　　 打开控制面板，找到“打开或关闭windows功能”（在“程序”里面），选中对话框中的Telnet客户端、Telnet服务器（可能不需要，没测试），然后确定，等待  完成。这时就开启了telnet功能。
+#####　　2、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实现发送邮箱的几种方法">
+<meta property="og:url" content="http://zonectmac.com/2017/04/22/send-email/index.html">
+<meta property="og:site_name" content="信笺叶子">
+<meta property="og:description" content="以下为众多方法中的几种，后面继续补充。。。。。
+
+###一、telnet windows下使用cmd（命令行）发送邮件
+#####　　1、windows开启telnet服务　　 打开控制面板，找到“打开或关闭windows功能”（在“程序”里面），选中对话框中的Telnet客户端、Telnet服务器（可能不需要，没测试），然后确定，等待  完成。这时就开启了telnet功能。
+#####　　2、">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2953420-ddb49e1951cee355.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-04-21T17:36:52.753Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="实现发送邮箱的几种方法">
+<meta name="twitter:description" content="以下为众多方法中的几种，后面继续补充。。。。。
+
+###一、telnet windows下使用cmd（命令行）发送邮件
+#####　　1、windows开启telnet服务　　 打开控制面板，找到“打开或关闭windows功能”（在“程序”里面），选中对话框中的Telnet客户端、Telnet服务器（可能不需要，没测试），然后确定，等待  完成。这时就开启了telnet功能。
+#####　　2、">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2953420-ddb49e1951cee355.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'OEP7UP6GTS',
+      apiKey: '30795d859e1f1a85c0b2bddec13d88fa',
+      indexName: 'first_NAME',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zonectmac.com/2017/04/22/send-email/"/>
+
+
+
+
+
+  <title> 实现发送邮箱的几种方法 | 信笺叶子 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4fbac29505b4018228f94fac6c51bf94";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">信笺叶子</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">哈哈哈Camera</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://zonectmac.com/2017/04/22/send-email/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZonecTmac">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="信笺叶子">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                实现发送邮箱的几种方法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-22T00:18:11+08:00">
+                2017-04-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/22/send-email/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/22/send-email/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
 <p>以下为众多方法中的几种，后面继续补充。。。。。</p>
 </blockquote>
 <p>###一、telnet windows下使用cmd（命令行）发送邮件</p>
@@ -62,82 +455,401 @@
 <p>终于来到了Python，不多说，直接上代码：</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div></pre></td><td class="code"><pre><div class="line"># -*- coding: utf-8 -*-</div><div class="line"></div><div class="line">&apos;&apos;&apos;</div><div class="line">发送邮件</div><div class="line">&apos;&apos;&apos;</div><div class="line"></div><div class="line">import smtplib</div><div class="line">from email.mime.base import MIMEBase</div><div class="line">from email.mime.multipart import MIMEMultipart</div><div class="line">from email.mime.text import MIMEText</div><div class="line">import os.path</div><div class="line">import email</div><div class="line">import mimetypes</div><div class="line">import os</div><div class="line">from os.path import join, getsize</div><div class="line">import traceback</div><div class="line"></div><div class="line">class EmailManager:</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    send email to the given email address automatically</div><div class="line">    &apos;&apos;&apos;</div><div class="line"></div><div class="line">    def __init__(self, **kw):</div><div class="line">        &apos; 构造函数 &apos;</div><div class="line">        self.kw = kw</div><div class="line"></div><div class="line">        # self.smtp_server = &quot;smtp.exmail.qq.com&quot;</div><div class="line">        self.MAX_FILE_SIZE = 10 * 1024 * 1024  # 10M</div><div class="line"></div><div class="line">    def run(self):</div><div class="line">        # 总入口</div><div class="line">        try:</div><div class="line">            # 初始化</div><div class="line">            self.__my_init()</div><div class="line">            # 登录SMTP服务器，验证授权</div><div class="line">            server = self.get_login_server()</div><div class="line">            # 生成邮件主体内容</div><div class="line">            main_msg = self.get_main_msg()</div><div class="line">            # 生成邮件附件内容</div><div class="line">            file_msg = self.get_attach_file_msg()</div><div class="line"></div><div class="line">            if file_msg is not None:</div><div class="line">                main_msg.attach(file_msg)</div><div class="line"></div><div class="line">            # 得到格式化后的完整文本</div><div class="line">            fullText = main_msg.as_string()</div><div class="line"></div><div class="line">            # 发送邮件</div><div class="line">            server.sendmail(self.msg_from, self.receiver, fullText)</div><div class="line">        except Exception as e:</div><div class="line">            print(e)</div><div class="line">            exstr = traceback.format_exc()</div><div class="line">            print(exstr)</div><div class="line">            server.quit()</div><div class="line">            exit()</div><div class="line"></div><div class="line">    def get_main_msg(self):</div><div class="line">        &apos; 生成邮件主体内容 &apos;</div><div class="line">        # 构造MIMEMultipart对象做为根容器</div><div class="line">        main_msg = MIMEMultipart()</div><div class="line"></div><div class="line">        # 构造MIMEText对象做为邮件显示内容并附加到根容器</div><div class="line">        text_msg = MIMEText(self.msg_content, _charset=&quot;utf-8&quot;)</div><div class="line">        main_msg.attach(text_msg)</div><div class="line"></div><div class="line">        # 设置根容器属性</div><div class="line">        main_msg[&apos;From&apos;] = self.msg_from</div><div class="line">        main_msg[&apos;To&apos;] = self.msg_to</div><div class="line">        main_msg[&apos;Cc&apos;] = self.msg_cc</div><div class="line">        main_msg[&apos;Subject&apos;] = self.msg_subject</div><div class="line">        main_msg[&apos;Date&apos;] = self.msg_date</div><div class="line"></div><div class="line">        return main_msg</div><div class="line"></div><div class="line">    def get_attach_file_msg(self):</div><div class="line">        &apos; 生成邮件附件内容 &apos;</div><div class="line">        if self.attach_file is not None and self.attach_file != &quot;&quot;:</div><div class="line">            try:</div><div class="line">                self.validate_file_size()</div><div class="line"></div><div class="line">                data = open(self.attach_file, &apos;rb&apos;)</div><div class="line">                ctype, encoding = mimetypes.guess_type(self.attach_file)</div><div class="line">                if ctype is None or encoding is not None:</div><div class="line">                    ctype = &apos;application/octet-stream&apos;</div><div class="line">                maintype, subtype = ctype.split(&apos;/&apos;, 1)</div><div class="line">                file_msg = MIMEBase(maintype, subtype)</div><div class="line">                file_msg.set_payload(data.read())</div><div class="line">                data.close()</div><div class="line"></div><div class="line">                email.encoders.encode_base64(file_msg)  # 把附件编码</div><div class="line"></div><div class="line">                ## 设置附件头</div><div class="line">                basename = os.path.basename(self.attach_file)</div><div class="line">                file_msg.add_header(&apos;Content-Disposition&apos;, &apos;attachment&apos;, filename=basename)  # 修改邮件头</div><div class="line"></div><div class="line">                return file_msg</div><div class="line">            except Exception as e:</div><div class="line">                print(e)</div><div class="line">                return None</div><div class="line"></div><div class="line">        else:</div><div class="line">            return None</div><div class="line"></div><div class="line">    def get_login_server(self):</div><div class="line">        &apos; 登录SMTP服务器，验证授权信息 &apos;</div><div class="line">        server = smtplib.SMTP(self.smtp_server)</div><div class="line">        server.login(self.server_username, self.server_pwd)  # 仅smtp服务器需要验证时</div><div class="line"></div><div class="line">        return server</div><div class="line"></div><div class="line">    def validate_file_size(self):</div><div class="line">        &apos; 验证文件大小是否合法 &apos;</div><div class="line">        if getsize(self.attach_file) &gt; self.MAX_FILE_SIZE:</div><div class="line">            raise Exception(u&apos;附件过大，上传失败&apos;)</div><div class="line"></div><div class="line">    def __my_init(self):</div><div class="line">        &apos; 配置初始化 &apos;</div><div class="line">        # 邮箱登录设置</div><div class="line">        self.smtp_server = self.__get_cfg(&apos;smtp_server&apos;)</div><div class="line">        self.server_username = self.__get_cfg(&apos;server_username&apos;)</div><div class="line">        self.server_pwd = self.__get_cfg(&apos;server_pwd&apos;)</div><div class="line"></div><div class="line">        # 邮件内容设置</div><div class="line">        self.receiver = self.__get_cfg(&apos;msg_to&apos;) + self.__get_cfg(&apos;msg_cc&apos;)</div><div class="line"></div><div class="line">        self.msg_from = self.server_username</div><div class="line">        self.msg_to = &apos;,&apos;.join(self.__get_cfg(&apos;msg_to&apos;))</div><div class="line">        self.msg_cc = &apos;,&apos;.join(self.__get_cfg(&apos;msg_cc&apos;))</div><div class="line">        self.msg_subject = self.__get_cfg(&apos;msg_subject&apos;)</div><div class="line">        self.msg_date = self.__get_cfg(&apos;msg_date&apos;)</div><div class="line">        print(self.msg_date)</div><div class="line">        self.msg_content = self.__get_cfg(&apos;msg_content&apos;)</div><div class="line"></div><div class="line">        # 附件</div><div class="line">        self.attach_file = self.__get_cfg(&apos;attach_file&apos;, throw=False)</div><div class="line"></div><div class="line">    def __get_cfg(self, key, throw=True):</div><div class="line">        &apos; 根据key从**kw中取得相应的配置内容 &apos;</div><div class="line">        cfg = self.kw.get(key)</div><div class="line">        if throw == True and (cfg is None or cfg == &apos;&apos;):</div><div class="line">            raise Exception(&quot;配置不能为空！&quot;.decode(&apos;utf-8&apos;))</div><div class="line"></div><div class="line">        return cfg</div><div class="line">以下为调用代码：</div><div class="line"></div><div class="line">mail_cfg = &#123;</div><div class="line">    # 邮箱登录设置，使用SMTP登录</div><div class="line">    &apos;server_username&apos;: &apos;czhou@sfcservice.com&apos;,</div><div class="line">    &apos;server_pwd&apos;: &apos;密码&apos;,</div><div class="line">    &apos;smtp_server&apos;: &apos;smtp.exmail.qq.com&apos;,</div><div class="line">    # 邮件内容设置</div><div class="line">    &apos;msg_to&apos;: [&apos;czhou@sfcservice.com&apos;],  # 可以在此添加收件人,一定要list类型</div><div class="line">    &apos;msg_cc&apos;: [&apos;zone_c@qq.com&apos;, &apos;13026162269@163.com&apos;],</div><div class="line">    &apos;msg_subject&apos;: u&apos;代码&apos;,</div><div class="line">    &apos;msg_date&apos;: time.strftime(&apos;%Y-%m-%d %X&apos;, time.localtime()),</div><div class="line">    &apos;msg_content&apos;: u&quot;我的备份&quot;,</div><div class="line"></div><div class="line">    # 附件</div><div class="line">    &apos;attach_file&apos;: &apos;E:\\test\\NewTest\\test.txt&apos;</div><div class="line">&#125;</div><div class="line"># print( time.strftime(&apos;%Y-%m-%d %X&apos;, time.localtime()))</div><div class="line">email_manager = EmailManager(**mail_cfg)</div><div class="line"></div><div class="line">email_manager.run()</div></pre></td></tr></table></figure>
-]]></content>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/sendEmail/" rel="tag"># sendEmail</a>
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/VBScript/" rel="tag"># VBScript</a>
+          
+            <a href="/tags/telnet/" rel="tag"># telnet</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/03/hexo-test/" rel="next" title="测试文章">
+                <i class="fa fa-chevron-left"></i> 测试文章
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/04/22/send-email/"
+     data-title="实现发送邮箱的几种方法"
+     data-content=""
+     data-url="http://zonectmac.com/2017/04/22/send-email/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
     
-    <summary type="html">
+      <div class="ds-thread" data-thread-key="2017/04/22/send-email/"
+           data-title="实现发送邮箱的几种方法" data-url="http://zonectmac.com/2017/04/22/send-email/">
+      </div>
     
-      &lt;blockquote&gt;
-&lt;p&gt;以下为众多方法中的几种，后面继续补充。。。。。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;###一、telnet windows下使用cmd（命令行）发送邮件&lt;/p&gt;
-&lt;p&gt;#####　　1、windows开启telnet服务&lt;br&gt;　　 打开控制
-    
-    </summary>
-    
-    
-      <category term="sendEmail" scheme="http://zonectmac.com/tags/sendEmail/"/>
-    
-      <category term="python" scheme="http://zonectmac.com/tags/python/"/>
-    
-      <category term="Java" scheme="http://zonectmac.com/tags/Java/"/>
-    
-      <category term="VBScript" scheme="http://zonectmac.com/tags/VBScript/"/>
-    
-      <category term="telnet" scheme="http://zonectmac.com/tags/telnet/"/>
-    
-  </entry>
+  </div>
+
+
+        </div>
+        
+          
   
-  <entry>
-    <title>测试文章</title>
-    <link href="http://zonectmac.com/2016/09/03/hexo-test/"/>
-    <id>http://zonectmac.com/2016/09/03/hexo-test/</id>
-    <published>2016-09-03T13:59:10.000Z</published>
-    <updated>2017-04-13T16:01:20.902Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="biaoti"><a href="#biaoti" class="headerlink" title="biaoti"></a>biaoti</h1><h3 id="baagaagar"><a href="#baagaagar" class="headerlink" title="baagaagar"></a>baagaagar</h3>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;biaoti&quot;&gt;&lt;a href=&quot;#biaoti&quot; class=&quot;headerlink&quot; title=&quot;biaoti&quot;&gt;&lt;/a&gt;biaoti&lt;/h1&gt;&lt;h3 id=&quot;baagaagar&quot;&gt;&lt;a href=&quot;#baagaagar&quot; class=&quot;headerlink
-    
-    </summary>
-    
-      <category term="测试" scheme="http://zonectmac.com/categories/%E6%B5%8B%E8%AF%95/"/>
-    
-    
-      <category term="test" scheme="http://zonectmac.com/tags/test/"/>
-    
-      <category term="hexo" scheme="http://zonectmac.com/tags/hexo/"/>
-    
-      <category term="github" scheme="http://zonectmac.com/tags/github/"/>
-    
-  </entry>
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="ZonecTmac" />
+          <p class="site-author-name" itemprop="name">ZonecTmac</p>
+           
+              <p class="site-description motion-element" itemprop="description">zonectmac 博客</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zonectmac" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
   
-  <entry>
-    <title>Hello World</title>
-    <link href="http://zonectmac.com/2016/09/01/hello-world/"/>
-    <id>http://zonectmac.com/2016/09/01/hello-world/</id>
-    <published>2016-09-01T15:51:37.311Z</published>
-    <updated>2016-09-01T15:51:37.312Z</updated>
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZonecTmac</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-    
-    </summary>
-    
-    
-  </entry>
+
+  </div>
+
   
-</feed>
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"zonectmac"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
