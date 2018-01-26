@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zonectmac.com/"/>
-  <updated>2017-09-14T14:25:30.942Z</updated>
+  <updated>2018-01-25T15:56:08.472Z</updated>
   <id>http://zonectmac.com/</id>
   
   <author>
@@ -16,11 +16,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Hello World</title>
+    <link href="http://zonectmac.com/2018/01/25/hello-world/"/>
+    <id>http://zonectmac.com/2018/01/25/hello-world/</id>
+    <published>2018-01-25T15:53:36.705Z</published>
+    <updated>2018-01-25T15:56:08.472Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>python识别验证码</title>
     <link href="http://zonectmac.com/2017/09/14/python%E8%AF%86%E5%88%AB%E9%AA%8C%E8%AF%81%E7%A0%81/"/>
     <id>http://zonectmac.com/2017/09/14/python识别验证码/</id>
     <published>2017-09-14T13:33:50.000Z</published>
-    <updated>2017-09-14T14:25:30.942Z</updated>
+    <updated>2018-01-25T15:56:08.696Z</updated>
     
     <content type="html"><![CDATA[<h3 id="一、探讨"><a href="#一、探讨" class="headerlink" title="一、探讨"></a>一、探讨</h3><p>识别图形验证码可以说是做爬虫的必修课，涉及到计算机图形学，机器学习，机器视觉，人工智能等等高深领域……<br>简单地说，计算机图形学的主要研究内容就是研究如何在计算机中表示图形、以及利用计算机进行图形的计算、处理和显示的相关原理与算法。<br>图形通常由点、线、面、体等几何元素和灰度、色彩、线型、线宽等非几何属性组成。计算机涉及到的几何图形处理一般有 2维到n维图形处理，边界区分，面积计算，体积计算，扭曲变形校正。对于颜色则有色彩空间的计算与转换，图形上色，阴影，色差处理等等。</p>
 <blockquote>
@@ -103,7 +130,7 @@
     <link href="http://zonectmac.com/2017/06/08/pyinstaller-toexe/"/>
     <id>http://zonectmac.com/2017/06/08/pyinstaller-toexe/</id>
     <published>2017-06-08T15:02:28.000Z</published>
-    <updated>2017-06-08T15:55:05.983Z</updated>
+    <updated>2018-01-25T15:56:08.899Z</updated>
     
     <content type="html"><![CDATA[<h3 id="一、首先就是安装pyinstaller了-这里只说pip安装-因为方便"><a href="#一、首先就是安装pyinstaller了-这里只说pip安装-因为方便" class="headerlink" title="一、首先就是安装pyinstaller了,这里只说pip安装(因为方便)"></a>一、首先就是安装pyinstaller了,这里只说pip安装(因为方便)</h3><p>cmd命令行进入你安装的Python路径(比如我的是E:\python),最后进入到Scripts这个文件夹<br>　　<br><img src="http://upload-images.jianshu.io/upload_images/2953420-82a2c6e8d7d7a645.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
 <p>最后输入</p>
@@ -171,7 +198,7 @@
     <link href="http://zonectmac.com/2017/04/22/send-email/"/>
     <id>http://zonectmac.com/2017/04/22/send-email/</id>
     <published>2017-04-21T16:18:11.000Z</published>
-    <updated>2017-04-22T07:30:55.861Z</updated>
+    <updated>2018-01-25T15:56:08.949Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>以下为众多方法中的几种，后面继续补充。。。。。</p>
@@ -183,7 +210,7 @@
 <h5 id="1）打开命令行窗口，连接邮件服务器"><a href="#1）打开命令行窗口，连接邮件服务器" class="headerlink" title="　　1）打开命令行窗口，连接邮件服务器"></a>　　<strong>1）打开命令行窗口，连接邮件服务器</strong></h5><p>　　在命令刚窗口输入 telnet smtp.qq.com 25(这里以qq为例，若是163，则是smtp.163.com,25是端口　号，一般情况下不会变)<br>　　如果连接成功，服务器会返回一串字符：220 smtp.qq.com Esmtp QQ Mail Server</p>
 <h5 id="2）向服务器表明身份"><a href="#2）向服务器表明身份" class="headerlink" title="　　2）向服务器表明身份"></a>　　<strong>2）向服务器表明身份</strong></h5><p>　　在命令行输入 helo qq.com如果成功，服务器返回 250 smtp.qq.com<br>(qq.com可以用任何合法字符代替，本人用的名字拼音也通过了)</p>
 <h5 id="3）登录认证"><a href="#3）登录认证" class="headerlink" title="　　3）登录认证"></a>　　<strong>3）登录认证</strong></h5><p>　　 在命令行窗口输入 auth login如果成功，服务器会返回一串字符，类似于：334 VXNlcm5hbWU6，<br>　　（334 是不变的，后面的字母可能会变）<br> 　　接着输入你的邮箱（xxxxx@qq.com）的base64编码之后的字符串然后回车<br>　　如果成功，服务器返回一串字符，类似于：334 UGFzc3dvcmQ6<br>　　（334 是不变的，后面的字母可能会变）<br>　　接着输入你的独立密码（注意是独立密码）的base64编码之后的字符串然后回车，<br>　　如果登录成功，服务器返回一串字符：235 Authentication successful，<br>表示登录成功，如果不能成功登录，请检查账号密码是否正确。</p>
-<h5 id="4）编写邮件"><a href="#4）编写邮件" class="headerlink" title="　　4）编写邮件"></a>　　<strong>4）编写邮件</strong></h5><p>　　输入 mail from:＜<a href="&#x6d;&#97;&#105;&#108;&#116;&#x6f;&#x3a;&#x4f60;&#x81ea;&#24049;&#x7684;&#x90ae;&#x7bb1;&#65292;&#23601;&#26159;&#19978;&#19968;&#27493;&#x7684;&#x767b;&#24405;&#37038;&#x7bb1;&#x78;&#120;&#120;&#x40;&#113;&#113;&#x2e;&#99;&#x6f;&#x6d;">&#x4f60;&#x81ea;&#24049;&#x7684;&#x90ae;&#x7bb1;&#65292;&#23601;&#26159;&#19978;&#19968;&#27493;&#x7684;&#x767b;&#24405;&#37038;&#x7bb1;&#x78;&#120;&#120;&#x40;&#113;&#113;&#x2e;&#99;&#x6f;&#x6d;</a>＞ 回车<br>  　　（冒号和尖括号均为因为半角标点符号）<br>　　若格式不正确，服务器返回501 错误；若格式正确，服务器返回250 Ok。<br>　　输入 rcpt to:＜<a href="&#109;&#97;&#x69;&#108;&#116;&#x6f;&#58;&#x6536;&#20214;&#x4eba;&#37038;&#x7bb1;&#xff0c;&#x78;&#x78;&#x78;&#x40;&#x78;&#120;&#x78;&#46;&#x78;&#x78;&#120;">&#x6536;&#20214;&#x4eba;&#37038;&#x7bb1;&#xff0c;&#x78;&#x78;&#x78;&#x40;&#x78;&#120;&#x78;&#46;&#x78;&#x78;&#120;</a> ＞回车<br>　　若格式不正确，服务器返回501错误；若格式正确，服务器返回250 Ok。<br>　　输入data 回车<br>　　 服务器返回 354 End data with <cr><lf>.<cr><lf><br>　　输入from:名字 回车，<br>　　显示在收件人收邮件时的 发件人 位置<br>　　输入 to:名字 回车，<br>　　显示收件人收邮件时的 收件人 位置<br>　　输入 subject:主题 回车，<br>　　邮件主题<br>　　空一行写邮件内容，写完之后换行，输入英文半角状态下的句号 . 表示邮件内容写完了（不要问我正文中如果包含英文半角状态下的句号怎么办）<br>　　服务器返回 250 Ok: queues as<br>　　表示邮件已经发送<br>如 图：<br>　　<br><img src="http://upload-images.jianshu.io/upload_images/2953420-ddb49e1951cee355.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></lf></cr></lf></cr></p>
+<h5 id="4）编写邮件"><a href="#4）编写邮件" class="headerlink" title="　　4）编写邮件"></a>　　<strong>4）编写邮件</strong></h5><p>　　输入 mail from:＜<a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#58;&#x4f60;&#33258;&#24049;&#x7684;&#37038;&#x7bb1;&#xff0c;&#x5c31;&#x662f;&#x4e0a;&#19968;&#27493;&#30340;&#30331;&#x5f55;&#x90ae;&#31665;&#x78;&#120;&#x78;&#64;&#113;&#113;&#x2e;&#99;&#111;&#x6d;">&#x4f60;&#33258;&#24049;&#x7684;&#37038;&#x7bb1;&#xff0c;&#x5c31;&#x662f;&#x4e0a;&#19968;&#27493;&#30340;&#30331;&#x5f55;&#x90ae;&#31665;&#x78;&#120;&#x78;&#64;&#113;&#113;&#x2e;&#99;&#111;&#x6d;</a>＞ 回车<br>  　　（冒号和尖括号均为因为半角标点符号）<br>　　若格式不正确，服务器返回501 错误；若格式正确，服务器返回250 Ok。<br>　　输入 rcpt to:＜<a href="&#x6d;&#97;&#105;&#108;&#x74;&#x6f;&#x3a;&#x6536;&#20214;&#x4eba;&#37038;&#x7bb1;&#xff0c;&#120;&#x78;&#x78;&#x40;&#x78;&#x78;&#x78;&#x2e;&#120;&#120;&#x78;">&#x6536;&#20214;&#x4eba;&#37038;&#x7bb1;&#xff0c;&#120;&#x78;&#x78;&#x40;&#x78;&#x78;&#x78;&#x2e;&#120;&#120;&#x78;</a> ＞回车<br>　　若格式不正确，服务器返回501错误；若格式正确，服务器返回250 Ok。<br>　　输入data 回车<br>　　 服务器返回 354 End data with <cr><lf>.<cr><lf><br>　　输入from:名字 回车，<br>　　显示在收件人收邮件时的 发件人 位置<br>　　输入 to:名字 回车，<br>　　显示收件人收邮件时的 收件人 位置<br>　　输入 subject:主题 回车，<br>　　邮件主题<br>　　空一行写邮件内容，写完之后换行，输入英文半角状态下的句号 . 表示邮件内容写完了（不要问我正文中如果包含英文半角状态下的句号怎么办）<br>　　服务器返回 250 Ok: queues as<br>　　表示邮件已经发送<br>如 图：<br>　　<br><img src="http://upload-images.jianshu.io/upload_images/2953420-ddb49e1951cee355.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></lf></cr></lf></cr></p>
 <h3 id="二、vbScript-发送邮件"><a href="#二、vbScript-发送邮件" class="headerlink" title="二、vbScript 发送邮件"></a>二、vbScript 发送邮件</h3><blockquote>
 <p>vbScript 是个比较老的语言，这里只是玩下，建议还是用JS啦。。。。</p>
 </blockquote>
@@ -240,7 +267,7 @@
     <link href="http://zonectmac.com/2016/09/03/hexo-test/"/>
     <id>http://zonectmac.com/2016/09/03/hexo-test/</id>
     <published>2016-09-03T13:59:10.000Z</published>
-    <updated>2017-04-13T16:01:20.902Z</updated>
+    <updated>2018-01-25T15:56:08.664Z</updated>
     
     <content type="html"><![CDATA[<h1 id="biaoti"><a href="#biaoti" class="headerlink" title="biaoti"></a>biaoti</h1><h3 id="baagaagar"><a href="#baagaagar" class="headerlink" title="baagaagar"></a>baagaagar</h3>]]></content>
     
@@ -258,33 +285,6 @@
       <category term="hexo" scheme="http://zonectmac.com/tags/hexo/"/>
     
       <category term="github" scheme="http://zonectmac.com/tags/github/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://zonectmac.com/2016/09/01/hello-world/"/>
-    <id>http://zonectmac.com/2016/09/01/hello-world/</id>
-    <published>2016-09-01T15:51:37.311Z</published>
-    <updated>2016-09-01T15:51:37.312Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-    
-    </summary>
-    
     
   </entry>
   
