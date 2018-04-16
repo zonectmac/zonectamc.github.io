@@ -1,0 +1,848 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="python,scrapy," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="信笺叶子" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="一、安装scrapy这里不多说，查找网上教程自行安装就行
+二、爬取目的 因为最近有个需求是检测Amazon网站的两个店铺所卖的东西，所以这里主要是拿取店铺里面产品的ASIN单号
+三、开始爬虫1、输入命令创建项目，（这里有一些命令，大家可以输入scrapy查看命令 ，这里不多说）1scrapy startproject Amazon
+2、默认文件功能命令输入完成后，会相应生成一些文件，如下：
+
+
+s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="scrapy 爬取亚马逊信息">
+<meta property="og:url" content="http://zonectmac.com/2018/04/16/scrapy-爬取亚马逊信息/index.html">
+<meta property="og:site_name" content="信笺叶子">
+<meta property="og:description" content="一、安装scrapy这里不多说，查找网上教程自行安装就行
+二、爬取目的 因为最近有个需求是检测Amazon网站的两个店铺所卖的东西，所以这里主要是拿取店铺里面产品的ASIN单号
+三、开始爬虫1、输入命令创建项目，（这里有一些命令，大家可以输入scrapy查看命令 ，这里不多说）1scrapy startproject Amazon
+2、默认文件功能命令输入完成后，会相应生成一些文件，如下：
+
+
+s">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2953420-540173995e11a2dd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-04-16T14:55:36.919Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="scrapy 爬取亚马逊信息">
+<meta name="twitter:description" content="一、安装scrapy这里不多说，查找网上教程自行安装就行
+二、爬取目的 因为最近有个需求是检测Amazon网站的两个店铺所卖的东西，所以这里主要是拿取店铺里面产品的ASIN单号
+三、开始爬虫1、输入命令创建项目，（这里有一些命令，大家可以输入scrapy查看命令 ，这里不多说）1scrapy startproject Amazon
+2、默认文件功能命令输入完成后，会相应生成一些文件，如下：
+
+
+s">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2953420-540173995e11a2dd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'OEP7UP6GTS',
+      apiKey: '30795d859e1f1a85c0b2bddec13d88fa',
+      indexName: 'first_NAME',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zonectmac.com/2018/04/16/scrapy-爬取亚马逊信息/"/>
+
+
+
+
+
+  <title> scrapy 爬取亚马逊信息 | 信笺叶子 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4fbac29505b4018228f94fac6c51bf94";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">信笺叶子</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">哈哈哈Camera</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://zonectmac.com/2018/04/16/scrapy-爬取亚马逊信息/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZonecTmac">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="信笺叶子">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                scrapy 爬取亚马逊信息
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-16T22:15:59+08:00">
+                2018-04-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="一、安装scrapy"><a href="#一、安装scrapy" class="headerlink" title="一、安装scrapy"></a>一、安装scrapy</h3><p>这里不多说，查找网上教程自行安装就行</p>
+<h3 id="二、爬取目的"><a href="#二、爬取目的" class="headerlink" title="二、爬取目的"></a>二、爬取目的</h3><p> 因为最近有个需求是检测Amazon网站的两个店铺所卖的东西，所以这里主要是拿取店铺里面产品的ASIN单号</p>
+<h3 id="三、开始爬虫"><a href="#三、开始爬虫" class="headerlink" title="三、开始爬虫"></a>三、开始爬虫</h3><h4 id="1、输入命令创建项目，（这里有一些命令，大家可以输入scrapy查看命令-，这里不多说）"><a href="#1、输入命令创建项目，（这里有一些命令，大家可以输入scrapy查看命令-，这里不多说）" class="headerlink" title="1、输入命令创建项目，（这里有一些命令，大家可以输入scrapy查看命令 ，这里不多说）"></a>1、输入命令创建项目，（这里有一些命令，大家可以输入scrapy查看命令 ，这里不多说）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scrapy startproject Amazon</div></pre></td></tr></table></figure>
+<h4 id="2、默认文件功能"><a href="#2、默认文件功能" class="headerlink" title="2、默认文件功能"></a>2、默认文件功能</h4><p>命令输入完成后，会相应生成一些文件，如下：<br><img src="https://upload-images.jianshu.io/upload_images/2953420-540173995e11a2dd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="28E3FDA6-2A2B-4398-97AE-DEB40AA69B63.png"></p>
+<blockquote>
+<ul>
+<li>spider文件夹主要是放置你的爬虫文件的。</li>
+<li>item.py主要是用来自定义类,然后声明一些你要爬取的字段信息。</li>
+<li>middlewares.py中间件,Spider中间件是介入到Scrapy的spider处理机制的钩子框架，您可以添加代码来处理发送给 Spiders的response及spider产生的item和request。这里可以设置代理ip等。</li>
+<li>pipelines.py 这里主要是处理item信息的。 当Item在Spider中被收集之后，它将会被传递到Item Pipeline，一些组件会按照一定的顺序执行对Item的处理。</li>
+<li>setting.py Scrapy设定(settings)提供了定制Scrapy组件的方法。您可以控制包括核心(core)，插件(extension)，pipeline及spider组件。设定为代码提供了提取以key-value映射的配置值的的全局命名空间(namespace)。 设定可以通过下面介绍的多种机制进行设置。设定(settings)同时也是选择当前激活的Scrapy项目的方法(如果您有多个的话)。内置设定列表请参考 <a href="https://scrapy-chs.readthedocs.io/zh_CN/1.0/topics/settings.html#topics-settings-ref" target="_blank" rel="external">内置设定参考手册</a> 。</li>
+</ul>
+</blockquote>
+<p>以下是item pipeline的一些典型应用：</p>
+<blockquote>
+<pre><code>• 清理HTML数据
+• 验证爬取的数据(检查item包含某些字段)
+• 查重(并丢弃)
+• 将爬取结果保存到数据库中
+</code></pre></blockquote>
+<h4 id="3、编写代码"><a href="#3、编写代码" class="headerlink" title="3、编写代码"></a>3、编写代码</h4><p>首先在spider文件夹里面创建爬虫文件,我们这里有两个店铺需要爬取,我先写uk这个店铺的,创建uk_amazon_spider.py<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">class UkAmazonSpider(scrapy.Spider):</div><div class="line">    name = &apos;ukamazonspider&apos;</div><div class="line">    # allowed_domains = [&quot;amazon&quot;]</div><div class="line">    start_urls = [</div><div class="line">        &apos;https://www.amazon.co.uk/s?marketplaceID=A1F83G8C2ARO7P&amp;me=ANZYLS5IXG3VI&amp;merchant=ANZYLS5IXG3VI&amp;redirect=true&apos;]</div><div class="line"></div><div class="line">    def parse(self, response):</div><div class="line">        anis_list = response.xpath(&quot;//li/div[@class=&apos;s-item-container&apos;]&quot;)</div><div class="line">        for anis in anis_list:</div><div class="line">            item = UkPipelineItem()</div><div class="line">            anis_link = anis.xpath(&quot;./div[3]/div[1]/a/@href&quot;).extract()[0]</div><div class="line">            item[&quot;uk_anis&quot;] = anis_link.split(&apos;/dp/&apos;)[1].split(&apos;/&apos;)[0]</div><div class="line">            if len(anis.xpath(&quot;.//div[@class=&apos;a-box-inner a-padding-mini&apos;]&quot;)) &gt; 0:</div><div class="line">                print(&apos;more&apos;)</div><div class="line">                yield scrapy.Request(anis_link, callback=self.parse_more)</div><div class="line"></div><div class="line">            yield item</div><div class="line">        if len(response.xpath(&quot;//a[@id=&apos;pagnNextLink&apos;]&quot;)) &gt; 0:</div><div class="line">            next_url = response.xpath(&quot;//a[@id=&apos;pagnNextLink&apos;]/@href&quot;).extract()[0]</div><div class="line">            print(next_url)</div><div class="line">            yield scrapy.Request(&quot;https://www.amazon.co.uk&quot; + next_url, callback=self.parse)</div></pre></td></tr></table></figure></p>
+<blockquote>
+<ul>
+<li>name: 用于区别Spider。 该名字必须是唯一的，您不可以为不同的Spider设定相同的名字。</li>
+<li>start_urls: 包含了Spider在启动时进行爬取的url列表。 因此，第一个被获取到的页面将是其中之一。 后续的URL则从初始的URL获取到的数据中提取。</li>
+<li>parse() 是spider的一个方法。 被调用时，每个初始URL完成下载后生成的 Response 对象将会作为唯一的参数传递给该函数。 该方法负责解析返回的数据(response data)，提取数据(生成item)以及生成需要进一步处理的URL的 Request 对象。</li>
+<li>allowed_domains 这里是爬取网站的域名,可选项</li>
+</ul>
+</blockquote>
+<p>打开我们的起始页,我们发现我们要的asin单号其实在我们产品链接里面的,那么我们首先要拿到这里的链接才行,其实我们也可以点开这个连接进入到另一个页面获取,但是这里直接在连接里面提取更快。我们通过小path提取当前页面的所有产品详情url，然后循环提取其中的anis_link,拿到里面的anis后传给item。这里我们发现有的产品可能有多个颜色的选择，它的每个颜色的anis单号不一样，所以我们要获取这个产品的url，进入到这个产品的页面去获取其他颜色的anis单号。需要多写个方法yield scrapy.Request(anis_link, callback=self.parse_more)，<strong>记住这里要用yield，不要return</strong>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@classmethod</div><div class="line">    def parse_more(self, response):</div><div class="line">        # 拿更多的</div><div class="line">        data_asin = response.xpath(&quot;//div[@id=&apos;variation_color_name&apos;]/ul/li&quot;)</div><div class="line">        if data_asin is None:</div><div class="line">            return</div><div class="line">        for data in data_asin:</div><div class="line">            item = UkPipelineItem()</div><div class="line">            dataa = data.xpath(&quot;./@data-defaultasin&quot;).extract()[0]</div><div class="line">            item[&quot;uk_anis&quot;] = dataa + &quot;-more&quot;</div><div class="line">            yield item</div></pre></td></tr></table></figure></p>
+<p>通过xpath定位元素，然后传给item就行，至于如何使用xpath，这里不多做阐述。</p>
+<p>好吧，我们拿到了第一个页面的所有anis单号，但是这里我们有十几个页面需要去拿，涉及到翻页。我们发现其实下一页的链接都存在下一页的按钮中，我们只需要爬取每一夜的时候拿到这个链接并把它加入到我们的请求中去就行了。但是回调函数还是当前的这个方法，因为每个页面的解析都一样。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">if len(response.xpath(&quot;//a[@id=&apos;pagnNextLink&apos;]&quot;)) &gt; 0:</div><div class="line">            next_url = response.xpath(&quot;//a[@id=&apos;pagnNextLink&apos;]/@href&quot;).extract()[0]</div><div class="line">            print(next_url)</div><div class="line">            yield scrapy.Request(&quot;https://www.amazon.co.uk&quot; + next_url, callback=self.parse)</div></pre></td></tr></table></figure></p>
+<p>这里爬虫文件代码写完了，是不是很简单。</p>
+<h4 id="4、我们看下我们的item-py文件"><a href="#4、我们看下我们的item-py文件" class="headerlink" title="4、我们看下我们的item.py文件"></a>4、我们看下我们的item.py文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">class UkPipelineItem(scrapy.Item):</div><div class="line">    # define the fields for your item here like:</div><div class="line">    uk_anis = scrapy.Field()</div></pre></td></tr></table></figure>
+<p>很简单，因为我们只需要拿到anis单号就行</p>
+<h4 id="5、看下pipelines-py文件"><a href="#5、看下pipelines-py文件" class="headerlink" title="5、看下pipelines.py文件"></a>5、看下pipelines.py文件</h4><p>这里是处理item的，所以我们要把拿到的item写入到文件里，这里我们选择txt，如果你要拿的字段比较多的话，选择json比较好。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">class AmazonscrapyPipeline(object):</div><div class="line">    def __init__(self):</div><div class="line">        self.uk_file = open(&quot;txt/uk_amaozninfo.txt&quot;, &quot;w&quot;)</div><div class="line"></div><div class="line">    def process_item(self, item, spider):</div><div class="line">        self.uk_file.write(item[&quot;uk_anis&quot;] + &quot;\n&quot;)</div><div class="line"></div><div class="line">        return item</div><div class="line"></div><div class="line">    def close_spider(self, spider):</div><div class="line">        self.uk_file.close()</div></pre></td></tr></table></figure>
+<p>这样其实我们的代码已经写完了，但是我们要在setting里面注册启用item pipeline才行</p>
+<h4 id="6、setting-py文件"><a href="#6、setting-py文件" class="headerlink" title="6、setting.py文件"></a>6、setting.py文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ITEM_PIPELINES = &#123;</div><div class="line">    &apos;AmazonScrapy.pipelines.AmazonscrapyPipeline&apos;: 300,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="四、代理"><a href="#四、代理" class="headerlink" title="四、代理"></a>四、代理</h3><p>我们通过上面的代码已经可以拿到我们的信息了,但是这不是长久的,很可能被封ip,我们就需要代理了。首先我们需要在middlewares.py中间件里面自定义我们的中间件类，看代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">class ProxyMiddleware(object):</div><div class="line">    &quot;&quot;&quot;Custom ProxyMiddleware.&quot;&quot;&quot;</div><div class="line"></div><div class="line">    def __init__(self, ):</div><div class="line">        self.ua_list = [</div><div class="line">            &quot;Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; AcooBrowser; .NET CLR 1.1.4322; .NET CLR 2.0.50727)&quot;,</div><div class="line">            &quot;Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Acoo Browser; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; .NET CLR 3.0.04506)&quot;,</div><div class="line">            &quot;Mozilla/4.0 (compatible; MSIE 7.0; AOL 9.5; AOLBuild 4337.35; Windows NT 5.1; .NET CLR 1.1.4322; .NET CLR 2.0.50727)&quot;,</div><div class="line">            &quot;Mozilla/5.0 (Windows; U; MSIE 9.0; Windows NT 9.0; en-US)&quot;,</div><div class="line">            &quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET CLR 2.0.50727; Media Center PC 6.0)&quot;,</div><div class="line">            &quot;Mozilla/5.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET CLR 1.0.3705; .NET CLR 1.1.4322)&quot;,</div><div class="line">            &quot;Mozilla/4.0 (compatible; MSIE 7.0b; Windows NT 5.2; .NET CLR 1.1.4322; .NET CLR 2.0.50727; InfoPath.2; .NET CLR 3.0.04506.30)&quot;,</div><div class="line">            &quot;Mozilla/5.0 (Windows; U; Windows NT 5.1; zh-CN) AppleWebKit/523.15 (KHTML, like Gecko, Safari/419.3) Arora/0.3 (Change: 287 c9dfb30)&quot;,</div><div class="line">            &quot;Mozilla/5.0 (X11; U; Linux; en-US) AppleWebKit/527+ (KHTML, like Gecko, Safari/419.3) Arora/0.6&quot;,</div><div class="line">            &quot;Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.2pre) Gecko/20070215 K-Ninja/2.1.1&quot;,</div><div class="line">            &quot;Mozilla/5.0 (Windows; U; Windows NT 5.1; zh-CN; rv:1.9) Gecko/20080705 Firefox/3.0 Kapiko/3.0&quot;, ]</div><div class="line"></div><div class="line">    def get_ip(self, spider):</div><div class="line">        urlip = &apos;http://dynamic.goubanjia.yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyb940cd4f310407e1189c.html&apos;</div><div class="line">        s = requests.Session()</div><div class="line">        # 设置重试次数</div><div class="line">        s.mount(&apos;http://&apos;, HTTPAdapter(max_retries=5))</div><div class="line">        s.mount(&apos;https://&apos;, HTTPAdapter(max_retries=5))</div><div class="line">        response = s.get(urlip, timeout=30)</div><div class="line">        ip = response.content.strip()</div><div class="line">        ip = str(ip, encoding=&apos;utf-8&apos;)</div><div class="line">        return ip</div><div class="line"></div><div class="line">    def process_request(self, request, spider):</div><div class="line">        ua = random.choice(self.ua_list)</div><div class="line">        request.headers.setdefault(&apos;User-Agent&apos;, ua)</div><div class="line">        print(self.get_ip(spider))</div><div class="line">        request.meta[&quot;proxy&quot;] = &quot;http://&quot; + self.get_ip(spider)</div></pre></td></tr></table></figure>
+<p>我么设置了一些user header list，随机请求头，主要设置代理ip是在process_request这个方法里面，get_ip方法是获取代理ip的方法。同理我们要在setting里面启用这个中间件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">DOWNLOADER_MIDDLEWARES = &#123;</div><div class="line">     &apos;scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware&apos;: 100,</div><div class="line">     &apos;AmazonScrapy.middlewares.ProxyMiddleware&apos;: 80,</div><div class="line">    &apos;AmazonScrapy.middlewares.RedirectionMiddleware&apos;: 120,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>后面的数字代表的优先级，数字越小代表优先级越高</p>
+<p>我们代理设置完成了，但是为了防止被封我们还有一些东西要设置，同样在setting.py里面我们需要把robot协议设置为false,不遵守robot协议</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># Obey robots.txt rules</div><div class="line">ROBOTSTXT_OBEY = False</div><div class="line"></div><div class="line"># 如果启用，Scrapy将记录所有在request(Cookie 请求头)发送的cookies及response接收到的cookies(Set-Cookie 接收头)。</div><div class="line">COOKIES_ENABLED = False</div></pre></td></tr></table></figure>
+<p>最后,我们写完了代码,通过命令启用爬虫就行了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scrapy crawl ukamazonspider</div></pre></td></tr></table></figure>
+<p>看我的<a href="https://github.com/zonectmac/amazonspider" target="_blank" rel="external">github</a>代码，我写了两个爬虫文件，然后涉及到同时启用多个爬虫文件的方法，大家可以参考。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/scrapy/" rel="tag"># scrapy</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/27/android-打开相机实现连续拍照/" rel="next" title="android 打开相机实现连续拍照">
+                <i class="fa fa-chevron-left"></i> android 打开相机实现连续拍照
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="ZonecTmac" />
+          <p class="site-author-name" itemprop="name">ZonecTmac</p>
+           
+              <p class="site-description motion-element" itemprop="description">zonectmac 博客</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zonectmac" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、安装scrapy"><span class="nav-text">一、安装scrapy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、爬取目的"><span class="nav-text">二、爬取目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、开始爬虫"><span class="nav-text">三、开始爬虫</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、输入命令创建项目，（这里有一些命令，大家可以输入scrapy查看命令-，这里不多说）"><span class="nav-text">1、输入命令创建项目，（这里有一些命令，大家可以输入scrapy查看命令 ，这里不多说）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、默认文件功能"><span class="nav-text">2、默认文件功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、编写代码"><span class="nav-text">3、编写代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、我们看下我们的item-py文件"><span class="nav-text">4、我们看下我们的item.py文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、看下pipelines-py文件"><span class="nav-text">5、看下pipelines.py文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、setting-py文件"><span class="nav-text">6、setting.py文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、代理"><span class="nav-text">四、代理</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZonecTmac</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
