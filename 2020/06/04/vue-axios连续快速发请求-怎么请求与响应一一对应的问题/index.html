@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="vue,axios,前端," />
 
 
 
@@ -89,19 +89,22 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="概述最近在一个项目中又这么一个问题,发送一个请求对象,再返回响应后要对这个请求对象做一些处理.这里就设计到一个问题,假设它连续发了多次请求,但是响应并没有及时返回,因为响应是异步的原因,我就无法知道每一个返回是对应哪个请求的,就无法处理对应的请求.
+解决思路在请求的时候随机生成一个id,在响应的时候拿到这个id,对比一下就知道是不是这个请求了
+具体实施办法1、随机生成id这里为了防止id重复，我用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://zonectmac.com/2018/01/25/hello-world/index.html">
+<meta property="og:title" content="vue-axios连续快速发请求,怎么请求与响应一一对应的问题">
+<meta property="og:url" content="http://zonectmac.com/2020/06/04/vue-axios连续快速发请求-怎么请求与响应一一对应的问题/index.html">
 <meta property="og:site_name" content="信笺叶子">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2018-01-25T15:56:08.472Z">
+<meta property="og:description" content="概述最近在一个项目中又这么一个问题,发送一个请求对象,再返回响应后要对这个请求对象做一些处理.这里就设计到一个问题,假设它连续发了多次请求,但是响应并没有及时返回,因为响应是异步的原因,我就无法知道每一个返回是对应哪个请求的,就无法处理对应的请求.
+解决思路在请求的时候随机生成一个id,在响应的时候拿到这个id,对比一下就知道是不是这个请求了
+具体实施办法1、随机生成id这里为了防止id重复，我用">
+<meta property="og:updated_time" content="2020-06-04T11:24:30.333Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="vue-axios连续快速发请求,怎么请求与响应一一对应的问题">
+<meta name="twitter:description" content="概述最近在一个项目中又这么一个问题,发送一个请求对象,再返回响应后要对这个请求对象做一些处理.这里就设计到一个问题,假设它连续发了多次请求,但是响应并没有及时返回,因为响应是异步的原因,我就无法知道每一个返回是对应哪个请求的,就无法处理对应的请求.
+解决思路在请求的时候随机生成一个id,在响应的时候拿到这个id,对比一下就知道是不是这个请求了
+具体实施办法1、随机生成id这里为了防止id重复，我用">
 
 
 
@@ -129,13 +132,13 @@ Quick">
 
 
 
-  <link rel="canonical" href="http://zonectmac.com/2018/01/25/hello-world/"/>
+  <link rel="canonical" href="http://zonectmac.com/2020/06/04/vue-axios连续快速发请求-怎么请求与响应一一对应的问题/"/>
 
 
 
 
 
-  <title> Hello World | 信笺叶子 </title>
+  <title> vue-axios连续快速发请求,怎么请求与响应一一对应的问题 | 信笺叶子 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -322,7 +325,7 @@ Quick">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://zonectmac.com/2018/01/25/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://zonectmac.com/2020/06/04/vue-axios连续快速发请求-怎么请求与响应一一对应的问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZonecTmac">
@@ -343,7 +346,7 @@ Quick">
             
             
               
-                Hello World
+                vue-axios连续快速发请求,怎么请求与响应一一对应的问题
               
             
           </h1>
@@ -358,8 +361,8 @@ Quick">
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-25T23:53:36+08:00">
-                2018-01-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-04T19:01:17+08:00">
+                2020-06-04
               </time>
             
 
@@ -394,15 +397,11 @@ Quick">
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>最近在一个项目中又这么一个问题,发送一个请求对象,再返回响应后要对这个请求对象做一些处理.这里就设计到一个问题,假设它连续发了多次请求,但是响应并没有及时返回,因为响应是异步的原因,我就无法知道每一个返回是对应哪个请求的,就无法处理对应的请求.</p>
+<h3 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h3><p>在请求的时候随机生成一个id,在响应的时候拿到这个id,对比一下就知道是不是这个请求了</p>
+<h3 id="具体实施办法"><a href="#具体实施办法" class="headerlink" title="具体实施办法"></a>具体实施办法</h3><h4 id="1、随机生成id"><a href="#1、随机生成id" class="headerlink" title="1、随机生成id"></a>1、随机生成id</h4><p>这里为了防止id重复，我用了uuid这个方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">generateUUID() &#123;</div><div class="line">                return (this.randomNum() + this.randomNum() + &quot;-&quot; + this.randomNum() + &quot;-&quot; + this.randomNum() + &quot;-&quot; + this.randomNum() + &quot;-&quot; + this.randomNum() + this.randomNum() + this.randomNum());</div><div class="line">            &#125;,</div><div class="line">randomNum() &#123;</div><div class="line">                return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1)</div><div class="line">            &#125;</div></pre></td></tr></table></figure></p>
+<h4 id="2、利用promise包裹uuid"><a href="#2、利用promise包裹uuid" class="headerlink" title="2、利用promise包裹uuid"></a>2、利用promise包裹uuid</h4><p>这里主要是需要再网络异常的时候也需要带着这个uuid<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">new Promise((resolve, reject) =&gt; &#123;</div><div class="line">        const data = &#123;</div><div class="line">            question: sendMessage,</div><div class="line">            sessionId: this.sessionId</div><div class="line">        &#125;</div><div class="line">        //axois请求</div><div class="line">        getFaq(data).then((result) =&gt; &#123;</div><div class="line">            const resData = result.data</div><div class="line">            // 添加请求id</div><div class="line">            resData.rid = uuid</div><div class="line">            resolve(resData)</div><div class="line">        &#125;).catch((err) =&gt; &#123;</div><div class="line">            // 添加请求id</div><div class="line">            err.rid = uuid</div><div class="line">            reject(err)</div><div class="line">        &#125;)</div><div class="line">    &#125;).then((resData) =&gt; &#123;</div><div class="line">    // 拿到id resData.rid做对比处理结果 和请求id是一致的</div><div class="line">      console.log(resData.rid)</div><div class="line">    &#125;).catch((err) =&gt; &#123;</div><div class="line">    // 拿到id err.rid做对比处理结果 和请求id是一致的</div><div class="line">	console.log(err.rid)</div><div class="line">    &#125;)</div></pre></td></tr></table></figure></p>
+<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">sendOut(uuid) &#123;</div><div class="line">  new Promise((resolve, reject) =&gt; &#123;</div><div class="line">      const data = &#123;</div><div class="line">          question: sendMessage,</div><div class="line">          sessionId: this.sessionId</div><div class="line">      &#125;</div><div class="line">	  //调用接口方法</div><div class="line">      getFaq(data).then((result) =&gt; &#123;</div><div class="line">          const resData = result.data</div><div class="line">          resData.rid = uuid</div><div class="line">          resolve(resData)</div><div class="line">      &#125;).catch((err) =&gt; &#123;</div><div class="line">          err.rid = uuid</div><div class="line">          reject(err)</div><div class="line">      &#125;)</div><div class="line">  &#125;).then((resData) =&gt; &#123;</div><div class="line">      //处理结果,比对uuid</div><div class="line">      this.findRequestUUID(resData.rid, true, false)  </div><div class="line">  &#125;).catch((err) =&gt; &#123;</div><div class="line">      this.findRequestUUID(err.rid, true, true)</div><div class="line">      Dialog.alert(&#123;</div><div class="line">          message: err,</div><div class="line">      &#125;).then(() =&gt; &#123;</div><div class="line">      &#125;);</div><div class="line">  &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -430,6 +429,16 @@ Quick">
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+            <a href="/tags/axios/" rel="tag"># axios</a>
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+        </div>
+      
 
       
         
@@ -439,8 +448,8 @@ Quick">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/14/python识别验证码/" rel="next" title="python识别验证码">
-                <i class="fa fa-chevron-left"></i> python识别验证码
+              <a href="/2020/06/04/AIDL进程间通信的封装/" rel="next" title="AIDL进程间通信的封装">
+                <i class="fa fa-chevron-left"></i> AIDL进程间通信的封装
               </a>
             
           </div>
@@ -448,10 +457,6 @@ Quick">
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/27/android-打开相机实现连续拍照/" rel="prev" title="android 打开相机实现连续拍照">
-                android 打开相机实现连续拍照 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -598,7 +603,7 @@ Quick">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决思路"><span class="nav-text">解决思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#具体实施办法"><span class="nav-text">具体实施办法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、随机生成id"><span class="nav-text">1、随机生成id</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、利用promise包裹uuid"><span class="nav-text">2、利用promise包裹uuid</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完整代码"><span class="nav-text">完整代码</span></a></li></ol></div>
             
 
           </div>
