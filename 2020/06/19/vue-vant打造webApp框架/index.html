@@ -1,0 +1,859 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="vue - vant - wepApp,H5," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="信笺叶子" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="前言最近一直在用vue和vant开发H5前端,所以想做些总结,如何从零开始搭建一套webAPP的框架
+一、搭建项目创建项目，这里用的vue3，首先输入以下命令:
+
+vue create 项目名
+
+选择项目需要的特性,这里选择默认的default (babel,eslint),从零开始搭建
+二、安装路由router路由是必须的，输入以下命令
+
+npm install vue-router –save">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue+vant打造webApp框架">
+<meta property="og:url" content="http://zonectmac.com/2020/06/19/vue-vant打造webApp框架/index.html">
+<meta property="og:site_name" content="信笺叶子">
+<meta property="og:description" content="前言最近一直在用vue和vant开发H5前端,所以想做些总结,如何从零开始搭建一套webAPP的框架
+一、搭建项目创建项目，这里用的vue3，首先输入以下命令:
+
+vue create 项目名
+
+选择项目需要的特性,这里选择默认的default (babel,eslint),从零开始搭建
+二、安装路由router路由是必须的，输入以下命令
+
+npm install vue-router –save">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2953420-f6a623af74ba3b84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2953420-e9cd1f308336766b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2020-06-19T03:51:14.561Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue+vant打造webApp框架">
+<meta name="twitter:description" content="前言最近一直在用vue和vant开发H5前端,所以想做些总结,如何从零开始搭建一套webAPP的框架
+一、搭建项目创建项目，这里用的vue3，首先输入以下命令:
+
+vue create 项目名
+
+选择项目需要的特性,这里选择默认的default (babel,eslint),从零开始搭建
+二、安装路由router路由是必须的，输入以下命令
+
+npm install vue-router –save">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2953420-f6a623af74ba3b84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'OEP7UP6GTS',
+      apiKey: '30795d859e1f1a85c0b2bddec13d88fa',
+      indexName: 'first_NAME',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zonectmac.com/2020/06/19/vue-vant打造webApp框架/"/>
+
+
+
+
+
+  <title> vue+vant打造webApp框架 | 信笺叶子 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4fbac29505b4018228f94fac6c51bf94";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">信笺叶子</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">努力学习</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://zonectmac.com/2020/06/19/vue-vant打造webApp框架/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZonecTmac">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="信笺叶子">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                vue+vant打造webApp框架
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-19T11:01:38+08:00">
+                2020-06-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近一直在用vue和vant开发H5前端,所以想做些总结,如何从零开始搭建一套webAPP的框架</p>
+<h3 id="一、搭建项目"><a href="#一、搭建项目" class="headerlink" title="一、搭建项目"></a>一、搭建项目</h3><p>创建项目，这里用的vue3，首先输入以下命令:</p>
+<blockquote>
+<p>vue create 项目名</p>
+</blockquote>
+<p>选择项目需要的特性,这里选择默认的default (babel,eslint),从零开始搭建<br><img src="https://upload-images.jianshu.io/upload_images/2953420-f6a623af74ba3b84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="二、安装路由router"><a href="#二、安装路由router" class="headerlink" title="二、安装路由router"></a>二、安装路由router</h3><p>路由是必须的，输入以下命令</p>
+<blockquote>
+<p>npm install vue-router –save</p>
+</blockquote>
+<p>安装成功后在src目录下新建router文件夹,再在里面新建index.js,输入以下内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">import Vue from &apos;vue&apos;</div><div class="line">import VueRouter from &apos;vue-router&apos;</div><div class="line"></div><div class="line">Vue.use(VueRouter);</div><div class="line"></div><div class="line">const routes = [</div><div class="line">    // 路由</div><div class="line">    &#123;&#125;</div><div class="line">]</div><div class="line">const createRouter = () =&gt; new VueRouter(&#123;</div><div class="line">    mode: &apos;history&apos;,</div><div class="line">    base: process.env.BASE_URL,</div><div class="line">    routes</div><div class="line">&#125;);</div><div class="line"></div><div class="line">const router = createRouter();</div><div class="line"></div><div class="line">router.beforeEach((to, from, next) =&gt; &#123;</div><div class="line">    /* 路由发生变化修改页面title */</div><div class="line">    if (to.meta.title) &#123;</div><div class="line">        document.title = to.meta.title;</div><div class="line">    &#125;</div><div class="line">    next();</div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line">export default router</div></pre></td></tr></table></figure></p>
+<p>在main.js中引入路由<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">import router from &apos;./router&apos;</div><div class="line"></div><div class="line">new Vue(&#123;</div><div class="line">    router,</div><div class="line">    store,</div><div class="line">    render: h =&gt; h(App),</div><div class="line">&#125;).$mount(&apos;#app&apos;)</div></pre></td></tr></table></figure></p>
+<h3 id="三、安装vuex"><a href="#三、安装vuex" class="headerlink" title="三、安装vuex"></a>三、安装vuex</h3><p>一般vuex也是必须的，输入以下命令</p>
+<blockquote>
+<p>npm install vuex –save</p>
+</blockquote>
+<p>安装完成后,在src目录下新建store文件夹,再在里面新建index.js,输入以下内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">import Vue from &apos;vue&apos;</div><div class="line">import Vuex from &apos;vuex&apos;</div><div class="line">import user from &apos;./modules/user&apos;</div><div class="line"></div><div class="line">Vue.use(Vuex)</div><div class="line"></div><div class="line">export default new Vuex.Store(&#123;</div><div class="line">    state: &#123;&#125;,</div><div class="line">    mutations: &#123;&#125;,</div><div class="line">    actions: &#123;&#125;,</div><div class="line">    modules: &#123;</div><div class="line">        user</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>可以新建modules,这里可以参考vuex官网</p>
+<h3 id="四、安装vant"><a href="#四、安装vant" class="headerlink" title="四、安装vant"></a>四、安装vant</h3><h4 id="1-安装vant"><a href="#1-安装vant" class="headerlink" title="1.安装vant"></a>1.安装vant</h4><p>输入以下命令</p>
+<blockquote>
+<p>npm install vant –save</p>
+</blockquote>
+<h4 id="2-安装插件"><a href="#2-安装插件" class="headerlink" title="2.安装插件"></a>2.安装插件</h4><p>输入以下命令</p>
+<blockquote>
+<p>npm i babel-plugin-import -D</p>
+</blockquote>
+<p>在babel.config.js增加下面配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">module.exports = &#123;</div><div class="line">  plugins: [</div><div class="line">    [&apos;import&apos;, &#123;</div><div class="line">      libraryName: &apos;vant&apos;,</div><div class="line">      libraryDirectory: &apos;es&apos;,</div><div class="line">      style: true</div><div class="line">    &#125;, &apos;vant&apos;]</div><div class="line">  ]</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h4 id="3-按需引入vant组件"><a href="#3-按需引入vant组件" class="headerlink" title="3.按需引入vant组件"></a>3.按需引入vant组件</h4><p>这里推荐按需引入,防止包过大,在main.js,例如引入button<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">import &#123; Button &#125; from &apos;vant&apos;;</div><div class="line"></div><div class="line">Vue.use(Button);</div></pre></td></tr></table></figure></p>
+<h4 id="4-使用vw实现移动端适配"><a href="#4-使用vw实现移动端适配" class="headerlink" title="4.使用vw实现移动端适配"></a>4.使用vw实现移动端适配</h4><p>安装 postcss-px-to-viewport</p>
+<blockquote>
+<p>npm install postcss-px-to-viewport –save-dev</p>
+</blockquote>
+<p>在package.json中引用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&quot;postcss&quot;: &#123;</div><div class="line">    &quot;plugins&quot;: &#123;</div><div class="line">      &quot;autoprefixer&quot;: &#123;&#125;,</div><div class="line">      &quot;postcss-px-to-viewport&quot;: &#123;</div><div class="line">        &quot;unitToConvert&quot;: &quot;px&quot;,</div><div class="line">        &quot;viewportWidth&quot;: 375,</div><div class="line">        &quot;unitPrecision&quot;: 3,</div><div class="line">        &quot;viewportUnit&quot;: &quot;vw&quot;,</div><div class="line">        &quot;minPixelValue&quot;: 1</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+<h4 id="5-添加fastClick移除移动端点击延迟"><a href="#5-添加fastClick移除移动端点击延迟" class="headerlink" title="5.添加fastClick移除移动端点击延迟"></a>5.添加fastClick移除移动端点击延迟</h4><p>安装fastClick</p>
+<blockquote>
+<p>npm i fastclick -S</p>
+</blockquote>
+<p>在main.js中引用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">import FastClick from &apos;fastclick&apos;</div><div class="line">FastClick.attach(document.body)</div></pre></td></tr></table></figure></p>
+<p>这里需要注意的是:在ios中输入框有的时候点击不灵敏(之前搞了好久),需要修改fastClick的源码,大约在325行<br>新增如下代码<br><img src="https://upload-images.jianshu.io/upload_images/2953420-e9cd1f308336766b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h4 id="6-安装vue-scroller刷新组件"><a href="#6-安装vue-scroller刷新组件" class="headerlink" title="6.安装vue-scroller刷新组件"></a>6.安装vue-scroller刷新组件</h4><blockquote>
+<p>npm i vue-scroller -S</p>
+</blockquote>
+<p>在main.js中引用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">import VueScroller from &apos;vue-scroller&apos;</div><div class="line">Vue.use(VueScroller)</div></pre></td></tr></table></figure></p>
+<h4 id="7-安装axios网络框架"><a href="#7-安装axios网络框架" class="headerlink" title="7.安装axios网络框架"></a>7.安装axios网络框架</h4><blockquote>
+<p>npm i axios -S</p>
+</blockquote>
+<h4 id="8-初始化样式"><a href="#8-初始化样式" class="headerlink" title="8.初始化样式"></a>8.初始化样式</h4><p>这里是为了样式便于控制,去掉了HTML element本身的样式,新建reset.css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">@charset &quot;utf-8&quot;;html&#123;background-color:#fff;color:#000;font-size:12px&#125;</div><div class="line">body,ul,ol,dl,dd,h1,h2,h3,h4,h5,h6,figure,form,fieldset,legend,input,textarea,button,p,blockquote,th,td,pre,xmp&#123;margin:0;padding:0&#125;</div><div class="line">body,input,textarea,button,select,pre,xmp,tt,code,kbd,samp&#123;line-height:1.5;font-family:tahoma,arial,&quot;Hiragino Sans GB&quot;,simsun,sans-serif&#125;</div><div class="line">h1,h2,h3,h4,h5,h6,small,big,input,textarea,button,select&#123;font-size:100%&#125;</div><div class="line">h1,h2,h3,h4,h5,h6&#123;font-family:tahoma,arial,&quot;Hiragino Sans GB&quot;,&quot;微软雅黑&quot;,simsun,sans-serif&#125;</div><div class="line">h1,h2,h3,h4,h5,h6,b,strong&#123;font-weight:normal&#125;</div><div class="line">address,cite,dfn,em,i,optgroup,var&#123;font-style:normal&#125;</div><div class="line">table&#123;border-collapse:collapse;border-spacing:0;text-align:left&#125;</div><div class="line">caption,th&#123;text-align:inherit&#125;</div><div class="line">ul,ol,menu&#123;list-style:none&#125;</div><div class="line">fieldset,img&#123;border:0&#125;</div><div class="line">img,object,input,textarea,button,select&#123;vertical-align:middle&#125;</div><div class="line">article,aside,footer,header,section,nav,figure,figcaption,hgroup,details,menu&#123;display:block&#125;</div><div class="line">audio,canvas,video&#123;display:inline-block;*display:inline;*zoom:1&#125;</div><div class="line">blockquote:before,blockquote:after,q:before,q:after&#123;content:&quot;\0020&quot;&#125;</div><div class="line">textarea&#123;overflow:auto;resize:vertical&#125;</div><div class="line">input,textarea,button,select,a&#123;outline:0 none;border: none;&#125;</div><div class="line">button::-moz-focus-inner,input::-moz-focus-inner&#123;padding:0;border:0&#125;</div><div class="line">mark&#123;background-color:transparent&#125;</div><div class="line">a,ins,s,u,del&#123;text-decoration:none&#125;</div><div class="line">sup,sub&#123;vertical-align:baseline&#125;</div><div class="line">html &#123;overflow-x: hidden;height: 100%;font-size: 50px;-webkit-tap-highlight-color: transparent;&#125;</div><div class="line">body &#123;font-family: Arial, &quot;Microsoft Yahei&quot;, &quot;Helvetica Neue&quot;, Helvetica, sans-serif;color: #333;font-size: .28em;line-height: 1;-webkit-text-size-adjust: none;&#125;</div><div class="line">hr &#123;height: .02rem;margin: .1rem 0;border: medium none;border-top: .02rem solid #cacaca;&#125;</div><div class="line">a &#123;color: #25a4bb;text-decoration: none;&#125;</div></pre></td></tr></table></figure></p>
+<p>在main.js中引用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import &apos;./assets/styles/reset.css&apos; //统一的一个配色方案</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue-vant-wepApp/" rel="tag"># vue - vant - wepApp</a>
+          
+            <a href="/tags/H5/" rel="tag"># H5</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/04/vue-axios连续快速发请求-怎么请求与响应一一对应的问题/" rel="next" title="vue-axios连续快速发请求,怎么请求与响应一一对应的问题">
+                <i class="fa fa-chevron-left"></i> vue-axios连续快速发请求,怎么请求与响应一一对应的问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="ZonecTmac" />
+          <p class="site-author-name" itemprop="name">ZonecTmac</p>
+           
+              <p class="site-description motion-element" itemprop="description">zonectmac 博客</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zonectmac" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一、搭建项目"><span class="nav-text">一、搭建项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、安装路由router"><span class="nav-text">二、安装路由router</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、安装vuex"><span class="nav-text">三、安装vuex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、安装vant"><span class="nav-text">四、安装vant</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-安装vant"><span class="nav-text">1.安装vant</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-安装插件"><span class="nav-text">2.安装插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-按需引入vant组件"><span class="nav-text">3.按需引入vant组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-使用vw实现移动端适配"><span class="nav-text">4.使用vw实现移动端适配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-添加fastClick移除移动端点击延迟"><span class="nav-text">5.添加fastClick移除移动端点击延迟</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-安装vue-scroller刷新组件"><span class="nav-text">6.安装vue-scroller刷新组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-安装axios网络框架"><span class="nav-text">7.安装axios网络框架</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-初始化样式"><span class="nav-text">8.初始化样式</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZonecTmac</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+<div class=BbeiAn-info">
+  粤ICP备 -
+  <a href="http://www.miitbeian.gov.cn/">17113442号-1</a>
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
