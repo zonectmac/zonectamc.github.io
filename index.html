@@ -320,6 +320,135 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://zonectmac.com/2020/07/17/VUE移动端点击输入框-弹出键盘-底部tab栏被顶起的问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZonecTmac">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="信笺叶子">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2020/07/17/VUE移动端点击输入框-弹出键盘-底部tab栏被顶起的问题/" itemprop="url">
+                  VUE移动端点击输入框,弹出键盘,底部tab栏被顶起的问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-17T14:56:39+08:00">
+                2020-07-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>vue开发中有些需要固定在底部的tab栏, 需要用position:fixed，然后在tab里面有的有输入框,当点击输入框的时候,输入法会把固定在底部的tab栏弹起在输入法上面</p>
+<h3 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h3><p>检测浏览器的resize事件，当高度过小时就可以判定为出现这种情况，这时把定位改成absolute或者直接隐藏掉之类的。</p>
+<blockquote>
+<p>这里选择显示和影藏的办法</p>
+</blockquote>
+<h3 id="一、记录高度"><a href="#一、记录高度" class="headerlink" title="一、记录高度"></a>一、记录高度</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">data()&#123;</div><div class="line">    return&#123;</div><div class="line">        docmHeight: &apos;0&apos;,//默认屏幕高度</div><div class="line">        showHeight: &apos;0&apos;,//实时屏幕高度</div><div class="line">        isResize: false //默认屏幕高度是否已获取</div><div class="line">        showHide：false//显示或者影藏</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="二、初始化reSize（）事件"><a href="#二、初始化reSize（）事件" class="headerlink" title="二、初始化reSize（）事件"></a>二、初始化reSize（）事件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">mouted&#123;</div><div class="line">    this.initHeight()</div><div class="line">&#125;，</div><div class="line">methods：&#123;</div><div class="line">    initHeight() &#123;</div><div class="line">        // window.onresize监听页面高度的变化</div><div class="line">        window.onresize = () =&gt; &#123;</div><div class="line">            return (() =&gt; &#123;</div><div class="line">                if (!this.isResize) &#123;</div><div class="line">                    //默认屏幕高度</div><div class="line">                    this.docmHeight = document.documentElement.clientHeight</div><div class="line">                    this.isResize = true</div><div class="line">                &#125;</div><div class="line">                //实时屏幕高度，注意这里body一定要是100%高度，即屏幕的高度</div><div class="line">                // this.showHeight = window.innerHeight</div><div class="line">                this.showHeight = document.body.clientHeight</div><div class="line">            &#125;)()</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="三、用watch监控，判断是否影藏"><a href="#三、用watch监控，判断是否影藏" class="headerlink" title="三、用watch监控，判断是否影藏"></a>三、用watch监控，判断是否影藏</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">watch: &#123;</div><div class="line">    showHeight: function() &#123;</div><div class="line">        if ((this.docmHeight &gt;= this.showHeight) &amp;&amp; this.hasFocus) &#123;//这里我多做了一层判断,即输入框是否获取了焦点</div><div class="line">            this.showHide=false</div><div class="line">        &#125; else &#123;</div><div class="line">            this.showHide=true</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;,</div><div class="line"></div><div class="line">在输入框里加入</div><div class="line">@focusin=&quot;hasFocus=true&quot;</div><div class="line">@focusout=&quot;hasFocus=false&quot;</div><div class="line">来判断是否获取了焦点</div></pre></td></tr></table></figure>
+<h3 id="四、在底部栏加入v-if或者v-show显示和影藏"><a href="#四、在底部栏加入v-if或者v-show显示和影藏" class="headerlink" title="四、在底部栏加入v-if或者v-show显示和影藏"></a>四、在底部栏加入v-if或者v-show显示和影藏</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;footer&quot; v-show=&quot;showHide&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://zonectmac.com/2020/06/19/vue-vant打造webApp框架/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1667,172 +1796,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://zonectmac.com/2017/06/08/pyinstaller-toexe/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZonecTmac">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="信笺叶子">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/08/pyinstaller-toexe/" itemprop="url">
-                  利用pyinstaller 打包Python程序
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-08T23:02:28+08:00">
-                2017-06-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="一、首先就是安装pyinstaller了-这里只说pip安装-因为方便"><a href="#一、首先就是安装pyinstaller了-这里只说pip安装-因为方便" class="headerlink" title="一、首先就是安装pyinstaller了,这里只说pip安装(因为方便)"></a>一、首先就是安装pyinstaller了,这里只说pip安装(因为方便)</h3><p>cmd命令行进入你安装的Python路径(比如我的是E:\python),最后进入到Scripts这个文件夹<br>　　<br><img src="http://upload-images.jianshu.io/upload_images/2953420-82a2c6e8d7d7a645.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>最后输入</p>
-<pre><code>&gt; pip install pyinstaller
-</code></pre><p>会提示安装成功</p>
-<h3 id="二、进pyinstaller官网查看"><a href="#二、进pyinstaller官网查看" class="headerlink" title="二、进pyinstaller官网查看"></a>二、进pyinstaller官网查看</h3><p>发现目前支持Python2.7和Python3.3-Python3.5版本的Python程序,这里是官网访问<a href="http://www.pyinstaller.org/" target="_blank">Pyinstaller</a></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2953420-826fda2aadeb8f09.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<h3 id="三-pyinstaller命令的使用"><a href="#三-pyinstaller命令的使用" class="headerlink" title="三.pyinstaller命令的使用"></a>三.pyinstaller命令的使用</h3><table>
-<thead>
-<tr>
-<th>参数</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-F</td>
-<td style="text-align:center">指定打包后只生成一个exe格式的文件</td>
-</tr>
-<tr>
-<td>-D</td>
-<td style="text-align:center">–onedir 创建一个目录，包含exe文件，但会依赖很多文件（默认选项）</td>
-</tr>
-<tr>
-<td>-c</td>
-<td style="text-align:center">–console, –nowindowed 使用控制台，无界面(默认)</td>
-</tr>
-<tr>
-<td>-w</td>
-<td style="text-align:center">–windowed, –noconsole 使用窗口，无控制台</td>
-</tr>
-<tr>
-<td>-p</td>
-<td style="text-align:center">添加搜索路径，让其找到对应的库。</td>
-</tr>
-<tr>
-<td>-i</td>
-<td style="text-align:center">改变生成程序的icon图标</td>
-</tr>
-</tbody>
-</table>
-<p>例如:</p>
-<pre><code>&gt; pyinstaller -c -F -p E:\python_workpace\PABank\lib E:\python_workpace\PABank\pabank.py
-
-  pabank.py为main函数 的文件
-</code></pre><p>运行成功后,在命令行可以看到生成的exe程序所在的目录,,例如E:\python\Scripts\dist</p>
-<h3 id="四、注意事项"><a href="#四、注意事项" class="headerlink" title="四、注意事项"></a>四、注意事项</h3><p>1.如果在执行命令是失败了,一般是缺少什么库文件,pip安装就行了<br>2.在GUI编程的时候(PYQT5)一定要加这句,<span style="color: LightSeaGreen !important;"><strong>-p E:\Python\Lib\site-packages\PyQt5\Qt\bin   </strong></span> 这句<br>3.在运行exe文件时,如果提示加载动态库失败,安装下<span style="color: LightSeaGreen !important;"><strong>vc_redist.x64.exe</strong></span>这个vc++2015,可以去微软官网下载</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1882,7 +1845,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

@@ -320,6 +320,172 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://zonectmac.com/2017/06/08/pyinstaller-toexe/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZonecTmac">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="信笺叶子">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/08/pyinstaller-toexe/" itemprop="url">
+                  利用pyinstaller 打包Python程序
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-08T23:02:28+08:00">
+                2017-06-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="一、首先就是安装pyinstaller了-这里只说pip安装-因为方便"><a href="#一、首先就是安装pyinstaller了-这里只说pip安装-因为方便" class="headerlink" title="一、首先就是安装pyinstaller了,这里只说pip安装(因为方便)"></a>一、首先就是安装pyinstaller了,这里只说pip安装(因为方便)</h3><p>cmd命令行进入你安装的Python路径(比如我的是E:\python),最后进入到Scripts这个文件夹<br>　　<br><img src="http://upload-images.jianshu.io/upload_images/2953420-82a2c6e8d7d7a645.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>最后输入</p>
+<pre><code>&gt; pip install pyinstaller
+</code></pre><p>会提示安装成功</p>
+<h3 id="二、进pyinstaller官网查看"><a href="#二、进pyinstaller官网查看" class="headerlink" title="二、进pyinstaller官网查看"></a>二、进pyinstaller官网查看</h3><p>发现目前支持Python2.7和Python3.3-Python3.5版本的Python程序,这里是官网访问<a href="http://www.pyinstaller.org/" target="_blank">Pyinstaller</a></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2953420-826fda2aadeb8f09.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<h3 id="三-pyinstaller命令的使用"><a href="#三-pyinstaller命令的使用" class="headerlink" title="三.pyinstaller命令的使用"></a>三.pyinstaller命令的使用</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-F</td>
+<td style="text-align:center">指定打包后只生成一个exe格式的文件</td>
+</tr>
+<tr>
+<td>-D</td>
+<td style="text-align:center">–onedir 创建一个目录，包含exe文件，但会依赖很多文件（默认选项）</td>
+</tr>
+<tr>
+<td>-c</td>
+<td style="text-align:center">–console, –nowindowed 使用控制台，无界面(默认)</td>
+</tr>
+<tr>
+<td>-w</td>
+<td style="text-align:center">–windowed, –noconsole 使用窗口，无控制台</td>
+</tr>
+<tr>
+<td>-p</td>
+<td style="text-align:center">添加搜索路径，让其找到对应的库。</td>
+</tr>
+<tr>
+<td>-i</td>
+<td style="text-align:center">改变生成程序的icon图标</td>
+</tr>
+</tbody>
+</table>
+<p>例如:</p>
+<pre><code>&gt; pyinstaller -c -F -p E:\python_workpace\PABank\lib E:\python_workpace\PABank\pabank.py
+
+  pabank.py为main函数 的文件
+</code></pre><p>运行成功后,在命令行可以看到生成的exe程序所在的目录,,例如E:\python\Scripts\dist</p>
+<h3 id="四、注意事项"><a href="#四、注意事项" class="headerlink" title="四、注意事项"></a>四、注意事项</h3><p>1.如果在执行命令是失败了,一般是缺少什么库文件,pip安装就行了<br>2.在GUI编程的时候(PYQT5)一定要加这句,<span style="color: LightSeaGreen !important;"><strong>-p E:\Python\Lib\site-packages\PyQt5\Qt\bin   </strong></span> 这句<br>3.在运行exe文件时,如果提示加载动态库失败,安装下<span style="color: LightSeaGreen !important;"><strong>vc_redist.x64.exe</strong></span>这个vc++2015,可以去微软官网下载</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://zonectmac.com/2017/04/22/send-email/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -407,7 +573,7 @@
 <h5 id="1）打开命令行窗口，连接邮件服务器"><a href="#1）打开命令行窗口，连接邮件服务器" class="headerlink" title="　　1）打开命令行窗口，连接邮件服务器"></a>　　<strong>1）打开命令行窗口，连接邮件服务器</strong></h5><p>　　在命令刚窗口输入 telnet smtp.qq.com 25(这里以qq为例，若是163，则是smtp.163.com,25是端口　号，一般情况下不会变)<br>　　如果连接成功，服务器会返回一串字符：220 smtp.qq.com Esmtp QQ Mail Server</p>
 <h5 id="2）向服务器表明身份"><a href="#2）向服务器表明身份" class="headerlink" title="　　2）向服务器表明身份"></a>　　<strong>2）向服务器表明身份</strong></h5><p>　　在命令行输入 helo qq.com如果成功，服务器返回 250 smtp.qq.com<br>(qq.com可以用任何合法字符代替，本人用的名字拼音也通过了)</p>
 <h5 id="3）登录认证"><a href="#3）登录认证" class="headerlink" title="　　3）登录认证"></a>　　<strong>3）登录认证</strong></h5><p>　　 在命令行窗口输入 auth login如果成功，服务器会返回一串字符，类似于：334 VXNlcm5hbWU6，<br>　　（334 是不变的，后面的字母可能会变）<br> 　　接着输入你的邮箱（xxxxx@qq.com）的base64编码之后的字符串然后回车<br>　　如果成功，服务器返回一串字符，类似于：334 UGFzc3dvcmQ6<br>　　（334 是不变的，后面的字母可能会变）<br>　　接着输入你的独立密码（注意是独立密码）的base64编码之后的字符串然后回车，<br>　　如果登录成功，服务器返回一串字符：235 Authentication successful，<br>表示登录成功，如果不能成功登录，请检查账号密码是否正确。</p>
-<h5 id="4）编写邮件"><a href="#4）编写邮件" class="headerlink" title="　　4）编写邮件"></a>　　<strong>4）编写邮件</strong></h5><p>　　输入 mail from:＜<a href="&#x6d;&#97;&#x69;&#108;&#116;&#x6f;&#x3a;&#20320;&#x81ea;&#24049;&#30340;&#37038;&#x7bb1;&#65292;&#23601;&#x662f;&#19978;&#19968;&#27493;&#30340;&#30331;&#24405;&#x90ae;&#31665;&#120;&#120;&#x78;&#64;&#113;&#113;&#46;&#x63;&#x6f;&#109;">&#20320;&#x81ea;&#24049;&#30340;&#37038;&#x7bb1;&#65292;&#23601;&#x662f;&#19978;&#19968;&#27493;&#30340;&#30331;&#24405;&#x90ae;&#31665;&#120;&#120;&#x78;&#64;&#113;&#113;&#46;&#x63;&#x6f;&#109;</a>＞ 回车<br>  　　（冒号和尖括号均为因为半角标点符号）<br>　　若格式不正确，服务器返回501 错误；若格式正确，服务器返回250 Ok。<br>　　输入 rcpt to:＜<a href="&#x6d;&#97;&#x69;&#108;&#x74;&#x6f;&#x3a;&#x6536;&#20214;&#x4eba;&#37038;&#x7bb1;&#xff0c;&#x78;&#120;&#120;&#64;&#120;&#120;&#120;&#x2e;&#x78;&#x78;&#120;">&#x6536;&#20214;&#x4eba;&#37038;&#x7bb1;&#xff0c;&#x78;&#120;&#120;&#64;&#120;&#120;&#120;&#x2e;&#x78;&#x78;&#120;</a> ＞回车<br>　　若格式不正确，服务器返回501错误；若格式正确，服务器返回250 Ok。<br>　　输入data 回车<br>　　 服务器返回 354 End data with <cr><lf>.<cr><lf><br>　　输入from:名字 回车，<br>　　显示在收件人收邮件时的 发件人 位置<br>　　输入 to:名字 回车，<br>　　显示收件人收邮件时的 收件人 位置<br>　　输入 subject:主题 回车，<br>　　邮件主题<br>　　空一行写邮件内容，写完之后换行，输入英文半角状态下的句号 . 表示邮件内容写完了（不要问我正文中如果包含英文半角状态下的句号怎么办）<br>　　服务器返回 250 Ok: queues as<br>　　表示邮件已经发送<br>如 图：<br>　　<br><img src="http://upload-images.jianshu.io/upload_images/2953420-ddb49e1951cee355.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></lf></cr></lf></cr></p>
+<h5 id="4）编写邮件"><a href="#4）编写邮件" class="headerlink" title="　　4）编写邮件"></a>　　<strong>4）编写邮件</strong></h5><p>　　输入 mail from:＜<a href="&#x6d;&#97;&#105;&#108;&#x74;&#x6f;&#58;&#20320;&#33258;&#24049;&#30340;&#x90ae;&#31665;&#65292;&#x5c31;&#x662f;&#x4e0a;&#x4e00;&#x6b65;&#x7684;&#30331;&#x5f55;&#37038;&#x7bb1;&#x78;&#120;&#x78;&#64;&#113;&#x71;&#x2e;&#x63;&#x6f;&#x6d;">&#20320;&#33258;&#24049;&#30340;&#x90ae;&#31665;&#65292;&#x5c31;&#x662f;&#x4e0a;&#x4e00;&#x6b65;&#x7684;&#30331;&#x5f55;&#37038;&#x7bb1;&#x78;&#120;&#x78;&#64;&#113;&#x71;&#x2e;&#x63;&#x6f;&#x6d;</a>＞ 回车<br>  　　（冒号和尖括号均为因为半角标点符号）<br>　　若格式不正确，服务器返回501 错误；若格式正确，服务器返回250 Ok。<br>　　输入 rcpt to:＜<a href="&#109;&#97;&#105;&#x6c;&#116;&#x6f;&#x3a;&#25910;&#x4ef6;&#20154;&#x90ae;&#x7bb1;&#65292;&#120;&#x78;&#x78;&#x40;&#x78;&#x78;&#120;&#46;&#120;&#120;&#x78;">&#25910;&#x4ef6;&#20154;&#x90ae;&#x7bb1;&#65292;&#120;&#x78;&#x78;&#x40;&#x78;&#x78;&#120;&#46;&#120;&#120;&#x78;</a> ＞回车<br>　　若格式不正确，服务器返回501错误；若格式正确，服务器返回250 Ok。<br>　　输入data 回车<br>　　 服务器返回 354 End data with <cr><lf>.<cr><lf><br>　　输入from:名字 回车，<br>　　显示在收件人收邮件时的 发件人 位置<br>　　输入 to:名字 回车，<br>　　显示收件人收邮件时的 收件人 位置<br>　　输入 subject:主题 回车，<br>　　邮件主题<br>　　空一行写邮件内容，写完之后换行，输入英文半角状态下的句号 . 表示邮件内容写完了（不要问我正文中如果包含英文半角状态下的句号怎么办）<br>　　服务器返回 250 Ok: queues as<br>　　表示邮件已经发送<br>如 图：<br>　　<br><img src="http://upload-images.jianshu.io/upload_images/2953420-ddb49e1951cee355.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></lf></cr></lf></cr></p>
 <h3 id="二、vbScript-发送邮件"><a href="#二、vbScript-发送邮件" class="headerlink" title="二、vbScript 发送邮件"></a>二、vbScript 发送邮件</h3><blockquote>
 <p>vbScript 是个比较老的语言，这里只是玩下，建议还是用JS啦。。。。</p>
 </blockquote>
@@ -660,7 +826,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

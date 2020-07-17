@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zonectmac.com/"/>
-  <updated>2020-06-29T02:06:53.247Z</updated>
+  <updated>2020-07-17T07:03:11.978Z</updated>
   <id>http://zonectmac.com/</id>
   
   <author>
@@ -14,6 +14,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VUE移动端点击输入框,弹出键盘,底部tab栏被顶起的问题</title>
+    <link href="http://zonectmac.com/2020/07/17/VUE%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%82%B9%E5%87%BB%E8%BE%93%E5%85%A5%E6%A1%86-%E5%BC%B9%E5%87%BA%E9%94%AE%E7%9B%98-%E5%BA%95%E9%83%A8tab%E6%A0%8F%E8%A2%AB%E9%A1%B6%E8%B5%B7%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://zonectmac.com/2020/07/17/VUE移动端点击输入框-弹出键盘-底部tab栏被顶起的问题/</id>
+    <published>2020-07-17T06:56:39.000Z</published>
+    <updated>2020-07-17T07:03:11.978Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>vue开发中有些需要固定在底部的tab栏, 需要用position:fixed，然后在tab里面有的有输入框,当点击输入框的时候,输入法会把固定在底部的tab栏弹起在输入法上面</p>
+<h3 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h3><p>检测浏览器的resize事件，当高度过小时就可以判定为出现这种情况，这时把定位改成absolute或者直接隐藏掉之类的。</p>
+<blockquote>
+<p>这里选择显示和影藏的办法</p>
+</blockquote>
+<h3 id="一、记录高度"><a href="#一、记录高度" class="headerlink" title="一、记录高度"></a>一、记录高度</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">data()&#123;</div><div class="line">    return&#123;</div><div class="line">        docmHeight: &apos;0&apos;,//默认屏幕高度</div><div class="line">        showHeight: &apos;0&apos;,//实时屏幕高度</div><div class="line">        isResize: false //默认屏幕高度是否已获取</div><div class="line">        showHide：false//显示或者影藏</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="二、初始化reSize（）事件"><a href="#二、初始化reSize（）事件" class="headerlink" title="二、初始化reSize（）事件"></a>二、初始化reSize（）事件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">mouted&#123;</div><div class="line">    this.initHeight()</div><div class="line">&#125;，</div><div class="line">methods：&#123;</div><div class="line">    initHeight() &#123;</div><div class="line">        // window.onresize监听页面高度的变化</div><div class="line">        window.onresize = () =&gt; &#123;</div><div class="line">            return (() =&gt; &#123;</div><div class="line">                if (!this.isResize) &#123;</div><div class="line">                    //默认屏幕高度</div><div class="line">                    this.docmHeight = document.documentElement.clientHeight</div><div class="line">                    this.isResize = true</div><div class="line">                &#125;</div><div class="line">                //实时屏幕高度，注意这里body一定要是100%高度，即屏幕的高度</div><div class="line">                // this.showHeight = window.innerHeight</div><div class="line">                this.showHeight = document.body.clientHeight</div><div class="line">            &#125;)()</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="三、用watch监控，判断是否影藏"><a href="#三、用watch监控，判断是否影藏" class="headerlink" title="三、用watch监控，判断是否影藏"></a>三、用watch监控，判断是否影藏</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">watch: &#123;</div><div class="line">    showHeight: function() &#123;</div><div class="line">        if ((this.docmHeight &gt;= this.showHeight) &amp;&amp; this.hasFocus) &#123;//这里我多做了一层判断,即输入框是否获取了焦点</div><div class="line">            this.showHide=false</div><div class="line">        &#125; else &#123;</div><div class="line">            this.showHide=true</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;,</div><div class="line"></div><div class="line">在输入框里加入</div><div class="line">@focusin=&quot;hasFocus=true&quot;</div><div class="line">@focusout=&quot;hasFocus=false&quot;</div><div class="line">来判断是否获取了焦点</div></pre></td></tr></table></figure>
+<h3 id="四、在底部栏加入v-if或者v-show显示和影藏"><a href="#四、在底部栏加入v-if或者v-show显示和影藏" class="headerlink" title="四、在底部栏加入v-if或者v-show显示和影藏"></a>四、在底部栏加入v-if或者v-show显示和影藏</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;footer&quot; v-show=&quot;showHide&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h3&gt;&lt;p&gt;vue开发中有些需要固定在底部的tab栏, 需要用position:fixed，然后在tab里面有的有输入框,当点击输入框的
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://zonectmac.com/tags/vue/"/>
+    
+      <category term="H5" scheme="http://zonectmac.com/tags/H5/"/>
+    
+  </entry>
   
   <entry>
     <title>vue+vant打造webApp框架</title>
@@ -84,9 +115,9 @@
     </summary>
     
     
-      <category term="vue - vant - wepApp" scheme="http://zonectmac.com/tags/vue-vant-wepApp/"/>
-    
       <category term="H5" scheme="http://zonectmac.com/tags/H5/"/>
+    
+      <category term="vue - vant - wepApp" scheme="http://zonectmac.com/tags/vue-vant-wepApp/"/>
     
   </entry>
   
@@ -579,7 +610,7 @@
 <h5 id="1）打开命令行窗口，连接邮件服务器"><a href="#1）打开命令行窗口，连接邮件服务器" class="headerlink" title="　　1）打开命令行窗口，连接邮件服务器"></a>　　<strong>1）打开命令行窗口，连接邮件服务器</strong></h5><p>　　在命令刚窗口输入 telnet smtp.qq.com 25(这里以qq为例，若是163，则是smtp.163.com,25是端口　号，一般情况下不会变)<br>　　如果连接成功，服务器会返回一串字符：220 smtp.qq.com Esmtp QQ Mail Server</p>
 <h5 id="2）向服务器表明身份"><a href="#2）向服务器表明身份" class="headerlink" title="　　2）向服务器表明身份"></a>　　<strong>2）向服务器表明身份</strong></h5><p>　　在命令行输入 helo qq.com如果成功，服务器返回 250 smtp.qq.com<br>(qq.com可以用任何合法字符代替，本人用的名字拼音也通过了)</p>
 <h5 id="3）登录认证"><a href="#3）登录认证" class="headerlink" title="　　3）登录认证"></a>　　<strong>3）登录认证</strong></h5><p>　　 在命令行窗口输入 auth login如果成功，服务器会返回一串字符，类似于：334 VXNlcm5hbWU6，<br>　　（334 是不变的，后面的字母可能会变）<br> 　　接着输入你的邮箱（xxxxx@qq.com）的base64编码之后的字符串然后回车<br>　　如果成功，服务器返回一串字符，类似于：334 UGFzc3dvcmQ6<br>　　（334 是不变的，后面的字母可能会变）<br>　　接着输入你的独立密码（注意是独立密码）的base64编码之后的字符串然后回车，<br>　　如果登录成功，服务器返回一串字符：235 Authentication successful，<br>表示登录成功，如果不能成功登录，请检查账号密码是否正确。</p>
-<h5 id="4）编写邮件"><a href="#4）编写邮件" class="headerlink" title="　　4）编写邮件"></a>　　<strong>4）编写邮件</strong></h5><p>　　输入 mail from:＜<a href="&#x6d;&#97;&#x69;&#108;&#116;&#x6f;&#x3a;&#20320;&#x81ea;&#24049;&#30340;&#37038;&#x7bb1;&#65292;&#23601;&#x662f;&#19978;&#19968;&#27493;&#30340;&#30331;&#24405;&#x90ae;&#31665;&#120;&#120;&#x78;&#64;&#113;&#113;&#46;&#x63;&#x6f;&#109;">&#20320;&#x81ea;&#24049;&#30340;&#37038;&#x7bb1;&#65292;&#23601;&#x662f;&#19978;&#19968;&#27493;&#30340;&#30331;&#24405;&#x90ae;&#31665;&#120;&#120;&#x78;&#64;&#113;&#113;&#46;&#x63;&#x6f;&#109;</a>＞ 回车<br>  　　（冒号和尖括号均为因为半角标点符号）<br>　　若格式不正确，服务器返回501 错误；若格式正确，服务器返回250 Ok。<br>　　输入 rcpt to:＜<a href="&#x6d;&#97;&#x69;&#108;&#x74;&#x6f;&#x3a;&#x6536;&#20214;&#x4eba;&#37038;&#x7bb1;&#xff0c;&#x78;&#120;&#120;&#64;&#120;&#120;&#120;&#x2e;&#x78;&#x78;&#120;">&#x6536;&#20214;&#x4eba;&#37038;&#x7bb1;&#xff0c;&#x78;&#120;&#120;&#64;&#120;&#120;&#120;&#x2e;&#x78;&#x78;&#120;</a> ＞回车<br>　　若格式不正确，服务器返回501错误；若格式正确，服务器返回250 Ok。<br>　　输入data 回车<br>　　 服务器返回 354 End data with <cr><lf>.<cr><lf><br>　　输入from:名字 回车，<br>　　显示在收件人收邮件时的 发件人 位置<br>　　输入 to:名字 回车，<br>　　显示收件人收邮件时的 收件人 位置<br>　　输入 subject:主题 回车，<br>　　邮件主题<br>　　空一行写邮件内容，写完之后换行，输入英文半角状态下的句号 . 表示邮件内容写完了（不要问我正文中如果包含英文半角状态下的句号怎么办）<br>　　服务器返回 250 Ok: queues as<br>　　表示邮件已经发送<br>如 图：<br>　　<br><img src="http://upload-images.jianshu.io/upload_images/2953420-ddb49e1951cee355.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></lf></cr></lf></cr></p>
+<h5 id="4）编写邮件"><a href="#4）编写邮件" class="headerlink" title="　　4）编写邮件"></a>　　<strong>4）编写邮件</strong></h5><p>　　输入 mail from:＜<a href="&#x6d;&#97;&#105;&#108;&#x74;&#x6f;&#58;&#20320;&#33258;&#24049;&#30340;&#x90ae;&#31665;&#65292;&#x5c31;&#x662f;&#x4e0a;&#x4e00;&#x6b65;&#x7684;&#30331;&#x5f55;&#37038;&#x7bb1;&#x78;&#120;&#x78;&#64;&#113;&#x71;&#x2e;&#x63;&#x6f;&#x6d;">&#20320;&#33258;&#24049;&#30340;&#x90ae;&#31665;&#65292;&#x5c31;&#x662f;&#x4e0a;&#x4e00;&#x6b65;&#x7684;&#30331;&#x5f55;&#37038;&#x7bb1;&#x78;&#120;&#x78;&#64;&#113;&#x71;&#x2e;&#x63;&#x6f;&#x6d;</a>＞ 回车<br>  　　（冒号和尖括号均为因为半角标点符号）<br>　　若格式不正确，服务器返回501 错误；若格式正确，服务器返回250 Ok。<br>　　输入 rcpt to:＜<a href="&#109;&#97;&#105;&#x6c;&#116;&#x6f;&#x3a;&#25910;&#x4ef6;&#20154;&#x90ae;&#x7bb1;&#65292;&#120;&#x78;&#x78;&#x40;&#x78;&#x78;&#120;&#46;&#120;&#120;&#x78;">&#25910;&#x4ef6;&#20154;&#x90ae;&#x7bb1;&#65292;&#120;&#x78;&#x78;&#x40;&#x78;&#x78;&#120;&#46;&#120;&#120;&#x78;</a> ＞回车<br>　　若格式不正确，服务器返回501错误；若格式正确，服务器返回250 Ok。<br>　　输入data 回车<br>　　 服务器返回 354 End data with <cr><lf>.<cr><lf><br>　　输入from:名字 回车，<br>　　显示在收件人收邮件时的 发件人 位置<br>　　输入 to:名字 回车，<br>　　显示收件人收邮件时的 收件人 位置<br>　　输入 subject:主题 回车，<br>　　邮件主题<br>　　空一行写邮件内容，写完之后换行，输入英文半角状态下的句号 . 表示邮件内容写完了（不要问我正文中如果包含英文半角状态下的句号怎么办）<br>　　服务器返回 250 Ok: queues as<br>　　表示邮件已经发送<br>如 图：<br>　　<br><img src="http://upload-images.jianshu.io/upload_images/2953420-ddb49e1951cee355.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></lf></cr></lf></cr></p>
 <h3 id="二、vbScript-发送邮件"><a href="#二、vbScript-发送邮件" class="headerlink" title="二、vbScript 发送邮件"></a>二、vbScript 发送邮件</h3><blockquote>
 <p>vbScript 是个比较老的语言，这里只是玩下，建议还是用JS啦。。。。</p>
 </blockquote>

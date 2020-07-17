@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="vue,axios,前端," />
+  <meta name="keywords" content="vue,H5," />
 
 
 
@@ -89,22 +89,31 @@
 
 
 
-<meta name="description" content="概述最近在一个项目中又这么一个问题,发送一个请求对象,再返回响应后要对这个请求对象做一些处理.这里就设计到一个问题,假设它连续发了多次请求,但是响应并没有及时返回,因为响应是异步的原因,我就无法知道每一个返回是对应哪个请求的,就无法处理对应的请求.
-解决思路在请求的时候随机生成一个id,在响应的时候拿到这个id,对比一下就知道是不是这个请求了
-具体实施办法1、随机生成id这里为了防止id重复，我用">
+<meta name="description" content="问题描述vue开发中有些需要固定在底部的tab栏, 需要用position:fixed，然后在tab里面有的有输入框,当点击输入框的时候,输入法会把固定在底部的tab栏弹起在输入法上面
+解决思路检测浏览器的resize事件，当高度过小时就可以判定为出现这种情况，这时把定位改成absolute或者直接隐藏掉之类的。
+
+这里选择显示和影藏的办法
+
+一、记录高度12345678data()&amp;#123;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue-axios连续快速发请求,怎么请求与响应一一对应的问题">
-<meta property="og:url" content="http://zonectmac.com/2020/06/04/vue-axios连续快速发请求-怎么请求与响应一一对应的问题/index.html">
+<meta property="og:title" content="VUE移动端点击输入框,弹出键盘,底部tab栏被顶起的问题">
+<meta property="og:url" content="http://zonectmac.com/2020/07/17/VUE移动端点击输入框-弹出键盘-底部tab栏被顶起的问题/index.html">
 <meta property="og:site_name" content="信笺叶子">
-<meta property="og:description" content="概述最近在一个项目中又这么一个问题,发送一个请求对象,再返回响应后要对这个请求对象做一些处理.这里就设计到一个问题,假设它连续发了多次请求,但是响应并没有及时返回,因为响应是异步的原因,我就无法知道每一个返回是对应哪个请求的,就无法处理对应的请求.
-解决思路在请求的时候随机生成一个id,在响应的时候拿到这个id,对比一下就知道是不是这个请求了
-具体实施办法1、随机生成id这里为了防止id重复，我用">
-<meta property="og:updated_time" content="2020-06-04T11:26:26.957Z">
+<meta property="og:description" content="问题描述vue开发中有些需要固定在底部的tab栏, 需要用position:fixed，然后在tab里面有的有输入框,当点击输入框的时候,输入法会把固定在底部的tab栏弹起在输入法上面
+解决思路检测浏览器的resize事件，当高度过小时就可以判定为出现这种情况，这时把定位改成absolute或者直接隐藏掉之类的。
+
+这里选择显示和影藏的办法
+
+一、记录高度12345678data()&amp;#123;">
+<meta property="og:updated_time" content="2020-07-17T07:03:11.978Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue-axios连续快速发请求,怎么请求与响应一一对应的问题">
-<meta name="twitter:description" content="概述最近在一个项目中又这么一个问题,发送一个请求对象,再返回响应后要对这个请求对象做一些处理.这里就设计到一个问题,假设它连续发了多次请求,但是响应并没有及时返回,因为响应是异步的原因,我就无法知道每一个返回是对应哪个请求的,就无法处理对应的请求.
-解决思路在请求的时候随机生成一个id,在响应的时候拿到这个id,对比一下就知道是不是这个请求了
-具体实施办法1、随机生成id这里为了防止id重复，我用">
+<meta name="twitter:title" content="VUE移动端点击输入框,弹出键盘,底部tab栏被顶起的问题">
+<meta name="twitter:description" content="问题描述vue开发中有些需要固定在底部的tab栏, 需要用position:fixed，然后在tab里面有的有输入框,当点击输入框的时候,输入法会把固定在底部的tab栏弹起在输入法上面
+解决思路检测浏览器的resize事件，当高度过小时就可以判定为出现这种情况，这时把定位改成absolute或者直接隐藏掉之类的。
+
+这里选择显示和影藏的办法
+
+一、记录高度12345678data()&amp;#123;">
 
 
 
@@ -132,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://zonectmac.com/2020/06/04/vue-axios连续快速发请求-怎么请求与响应一一对应的问题/"/>
+  <link rel="canonical" href="http://zonectmac.com/2020/07/17/VUE移动端点击输入框-弹出键盘-底部tab栏被顶起的问题/"/>
 
 
 
 
 
-  <title> vue-axios连续快速发请求,怎么请求与响应一一对应的问题 | 信笺叶子 </title>
+  <title> VUE移动端点击输入框,弹出键盘,底部tab栏被顶起的问题 | 信笺叶子 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -325,7 +334,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://zonectmac.com/2020/06/04/vue-axios连续快速发请求-怎么请求与响应一一对应的问题/">
+    <link itemprop="mainEntityOfPage" href="http://zonectmac.com/2020/07/17/VUE移动端点击输入框-弹出键盘-底部tab栏被顶起的问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZonecTmac">
@@ -346,7 +355,7 @@
             
             
               
-                vue-axios连续快速发请求,怎么请求与响应一一对应的问题
+                VUE移动端点击输入框,弹出键盘,底部tab栏被顶起的问题
               
             
           </h1>
@@ -361,8 +370,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-04T19:01:17+08:00">
-                2020-06-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-17T14:56:39+08:00">
+                2020-07-17
               </time>
             
 
@@ -397,11 +406,15 @@
       
 
       
-        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>最近在一个项目中又这么一个问题,发送一个请求对象,再返回响应后要对这个请求对象做一些处理.这里就设计到一个问题,假设它连续发了多次请求,但是响应并没有及时返回,因为响应是异步的原因,我就无法知道每一个返回是对应哪个请求的,就无法处理对应的请求.</p>
-<h3 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h3><p>在请求的时候随机生成一个id,在响应的时候拿到这个id,对比一下就知道是不是这个请求了</p>
-<h3 id="具体实施办法"><a href="#具体实施办法" class="headerlink" title="具体实施办法"></a>具体实施办法</h3><h4 id="1、随机生成id"><a href="#1、随机生成id" class="headerlink" title="1、随机生成id"></a>1、随机生成id</h4><p>这里为了防止id重复，我用了uuid这个方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">generateUUID() &#123;</div><div class="line">                return (this.randomNum() + this.randomNum() + &quot;-&quot; + this.randomNum() + &quot;-&quot; + this.randomNum() + &quot;-&quot; + this.randomNum() + &quot;-&quot; + this.randomNum() + this.randomNum() + this.randomNum());</div><div class="line">            &#125;,</div><div class="line">randomNum() &#123;</div><div class="line">                return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1)</div><div class="line">            &#125;</div></pre></td></tr></table></figure></p>
-<h4 id="2、利用promise包裹uuid"><a href="#2、利用promise包裹uuid" class="headerlink" title="2、利用promise包裹uuid"></a>2、利用promise包裹uuid</h4><p>这里主要是需要再网络异常的时候也需要带着这个uuid<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">new Promise((resolve, reject) =&gt; &#123;</div><div class="line">        const data = &#123;</div><div class="line">            question: sendMessage,</div><div class="line">            sessionId: this.sessionId</div><div class="line">        &#125;</div><div class="line">        //axois请求</div><div class="line">        getFaq(data).then((result) =&gt; &#123;</div><div class="line">            const resData = result.data</div><div class="line">            // 添加请求id</div><div class="line">            resData.rid = uuid</div><div class="line">            resolve(resData)</div><div class="line">        &#125;).catch((err) =&gt; &#123;</div><div class="line">            // 添加请求id</div><div class="line">            err.rid = uuid</div><div class="line">            reject(err)</div><div class="line">        &#125;)</div><div class="line">    &#125;).then((resData) =&gt; &#123;</div><div class="line">    // 拿到id resData.rid做对比处理结果 和请求id是一致的</div><div class="line">      console.log(resData.rid)</div><div class="line">    &#125;).catch((err) =&gt; &#123;</div><div class="line">    // 拿到id err.rid做对比处理结果 和请求id是一致的</div><div class="line">	console.log(err.rid)</div><div class="line">    &#125;)</div></pre></td></tr></table></figure></p>
-<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">sendOut(uuid) &#123;</div><div class="line">  new Promise((resolve, reject) =&gt; &#123;</div><div class="line">      const data = &#123;</div><div class="line">          question: sendMessage,</div><div class="line">          sessionId: this.sessionId</div><div class="line">      &#125;</div><div class="line">      //调用接口方法</div><div class="line">      getFaq(data).then((result) =&gt; &#123;</div><div class="line">          const resData = result.data</div><div class="line">          resData.rid = uuid</div><div class="line">          resolve(resData)</div><div class="line">      &#125;).catch((err) =&gt; &#123;</div><div class="line">          err.rid = uuid</div><div class="line">          reject(err)</div><div class="line">      &#125;)</div><div class="line">  &#125;).then((resData) =&gt; &#123;</div><div class="line">      //处理结果,比对uuid</div><div class="line">      this.findRequestUUID(resData.rid, true, false)  </div><div class="line">  &#125;).catch((err) =&gt; &#123;</div><div class="line">      this.findRequestUUID(err.rid, true, true)</div><div class="line">      Dialog.alert(&#123;</div><div class="line">          message: err,</div><div class="line">      &#125;).then(() =&gt; &#123;</div><div class="line">      &#125;);</div><div class="line">  &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>vue开发中有些需要固定在底部的tab栏, 需要用position:fixed，然后在tab里面有的有输入框,当点击输入框的时候,输入法会把固定在底部的tab栏弹起在输入法上面</p>
+<h3 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h3><p>检测浏览器的resize事件，当高度过小时就可以判定为出现这种情况，这时把定位改成absolute或者直接隐藏掉之类的。</p>
+<blockquote>
+<p>这里选择显示和影藏的办法</p>
+</blockquote>
+<h3 id="一、记录高度"><a href="#一、记录高度" class="headerlink" title="一、记录高度"></a>一、记录高度</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">data()&#123;</div><div class="line">    return&#123;</div><div class="line">        docmHeight: &apos;0&apos;,//默认屏幕高度</div><div class="line">        showHeight: &apos;0&apos;,//实时屏幕高度</div><div class="line">        isResize: false //默认屏幕高度是否已获取</div><div class="line">        showHide：false//显示或者影藏</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="二、初始化reSize（）事件"><a href="#二、初始化reSize（）事件" class="headerlink" title="二、初始化reSize（）事件"></a>二、初始化reSize（）事件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">mouted&#123;</div><div class="line">    this.initHeight()</div><div class="line">&#125;，</div><div class="line">methods：&#123;</div><div class="line">    initHeight() &#123;</div><div class="line">        // window.onresize监听页面高度的变化</div><div class="line">        window.onresize = () =&gt; &#123;</div><div class="line">            return (() =&gt; &#123;</div><div class="line">                if (!this.isResize) &#123;</div><div class="line">                    //默认屏幕高度</div><div class="line">                    this.docmHeight = document.documentElement.clientHeight</div><div class="line">                    this.isResize = true</div><div class="line">                &#125;</div><div class="line">                //实时屏幕高度，注意这里body一定要是100%高度，即屏幕的高度</div><div class="line">                // this.showHeight = window.innerHeight</div><div class="line">                this.showHeight = document.body.clientHeight</div><div class="line">            &#125;)()</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="三、用watch监控，判断是否影藏"><a href="#三、用watch监控，判断是否影藏" class="headerlink" title="三、用watch监控，判断是否影藏"></a>三、用watch监控，判断是否影藏</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">watch: &#123;</div><div class="line">    showHeight: function() &#123;</div><div class="line">        if ((this.docmHeight &gt;= this.showHeight) &amp;&amp; this.hasFocus) &#123;//这里我多做了一层判断,即输入框是否获取了焦点</div><div class="line">            this.showHide=false</div><div class="line">        &#125; else &#123;</div><div class="line">            this.showHide=true</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;,</div><div class="line"></div><div class="line">在输入框里加入</div><div class="line">@focusin=&quot;hasFocus=true&quot;</div><div class="line">@focusout=&quot;hasFocus=false&quot;</div><div class="line">来判断是否获取了焦点</div></pre></td></tr></table></figure>
+<h3 id="四、在底部栏加入v-if或者v-show显示和影藏"><a href="#四、在底部栏加入v-if或者v-show显示和影藏" class="headerlink" title="四、在底部栏加入v-if或者v-show显示和影藏"></a>四、在底部栏加入v-if或者v-show显示和影藏</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;footer&quot; v-show=&quot;showHide&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -433,9 +446,7 @@
           
             <a href="/tags/vue/" rel="tag"># vue</a>
           
-            <a href="/tags/axios/" rel="tag"># axios</a>
-          
-            <a href="/tags/前端/" rel="tag"># 前端</a>
+            <a href="/tags/H5/" rel="tag"># H5</a>
           
         </div>
       
@@ -448,8 +459,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/06/04/AIDL进程间通信的封装/" rel="next" title="AIDL进程间通信的封装">
-                <i class="fa fa-chevron-left"></i> AIDL进程间通信的封装
+              <a href="/2020/06/19/vue-vant打造webApp框架/" rel="next" title="vue+vant打造webApp框架">
+                <i class="fa fa-chevron-left"></i> vue+vant打造webApp框架
               </a>
             
           </div>
@@ -457,10 +468,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/06/19/vue-vant打造webApp框架/" rel="prev" title="vue+vant打造webApp框架">
-                vue+vant打造webApp框架 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -607,7 +614,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决思路"><span class="nav-text">解决思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#具体实施办法"><span class="nav-text">具体实施办法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、随机生成id"><span class="nav-text">1、随机生成id</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、利用promise包裹uuid"><span class="nav-text">2、利用promise包裹uuid</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完整代码"><span class="nav-text">完整代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题描述"><span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决思路"><span class="nav-text">解决思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一、记录高度"><span class="nav-text">一、记录高度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、初始化reSize（）事件"><span class="nav-text">二、初始化reSize（）事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、用watch监控，判断是否影藏"><span class="nav-text">三、用watch监控，判断是否影藏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、在底部栏加入v-if或者v-show显示和影藏"><span class="nav-text">四、在底部栏加入v-if或者v-show显示和影藏</span></a></li></ol></div>
             
 
           </div>
