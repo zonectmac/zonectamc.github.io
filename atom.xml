@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zonectmac.com/"/>
-  <updated>2020-07-17T07:03:11.978Z</updated>
+  <updated>2020-07-17T07:15:58.252Z</updated>
   <id>http://zonectmac.com/</id>
   
   <author>
@@ -14,6 +14,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>H5在ios中的问题总结</title>
+    <link href="http://zonectmac.com/2020/07/17/H5%E5%9C%A8ios%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"/>
+    <id>http://zonectmac.com/2020/07/17/H5在ios中的问题总结/</id>
+    <published>2020-07-17T07:05:50.000Z</published>
+    <updated>2020-07-17T07:15:58.252Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近在做H5开发的时候,发现在ios上总有一些奇奇怪怪的问题,这里就做一些总结</p>
+<h3 id="一、使用fastClick的时候输入框有的时候点击不灵敏"><a href="#一、使用fastClick的时候输入框有的时候点击不灵敏" class="headerlink" title="一、使用fastClick的时候输入框有的时候点击不灵敏"></a>一、使用fastClick的时候输入框有的时候点击不灵敏</h3><p>解决办法：需要修改fastClick的源码,大约在325行，新增如下代码:targetElement.focus();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">* @param &#123;EventTarget|Element&#125; targetElement</div><div class="line">*/</div><div class="line">FastClick.prototype.focus = function(targetElement) &#123;</div><div class="line">    var length;</div><div class="line">    // Issue #160: on iOS 7, some input elements (e.g. date datetime month) throw a vague TypeError on setSelectionRange. These elements don&apos;t have an integer value for the             selectionStart and selectionEnd properties, but unfortunately that can&apos;t be used for detection because accessing the properties also throws a TypeError. Just check the type         instead. Filed as Apple bug #15122724.</div><div class="line">    if (deviceIsIOS &amp;&amp; targetElement.setSelectionRange &amp;&amp; targetElement.type.indexOf(&apos;date&apos;) !== 0 &amp;&amp; targetElement.type !== &apos;time&apos; &amp;&amp; targetElement.type !== &apos;month&apos;) &#123;</div><div class="line">        length = targetElement.value.length;</div><div class="line">        targetElement.setSelectionRange(length, length);</div><div class="line">        //这里是添加的</div><div class="line">        targetElement.focus();</div><div class="line">    &#125; else &#123;</div><div class="line">        targetElement.focus();</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h3 id="二、输入框被输入法顶出页面"><a href="#二、输入框被输入法顶出页面" class="headerlink" title="二、输入框被输入法顶出页面"></a>二、输入框被输入法顶出页面</h3><p>解决办法:点击输入框的时候滑动到输入框可视区域<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">focusClick()&#123;</div><div class="line">    document.getElementById(&apos;input&apos;).scrollIntoView()</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="三、iso上列表卡顿的问题"><a href="#三、iso上列表卡顿的问题" class="headerlink" title="三、iso上列表卡顿的问题"></a>三、iso上列表卡顿的问题</h3><p>解决办法：在列表最外层加上css样式  -webkit-overflow-scrolling: touch;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-webkit-overflow-scrolling: touch;</div></pre></td></tr></table></figure></p>
+<h3 id="四、用vuex获取state值的时候，如果用方法获取，第一次获取不到"><a href="#四、用vuex获取state值的时候，如果用方法获取，第一次获取不到" class="headerlink" title="四、用vuex获取state值的时候，如果用方法获取，第一次获取不到"></a>四、用vuex获取state值的时候，如果用方法获取，第一次获取不到</h3><p>解决办法：一定要做判断，方法获取不到的时候给个空‘’，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">state: &#123;</div><div class="line">    userId: getUserId() ? getUserId() : &apos;&apos;,</div><div class="line">    //userId: getUserId(),//这么写就会第一次获取不到,需要刷新才行,错误的写法</div><div class="line">&#125;,</div><div class="line"></div><div class="line">export function getUserId() &#123;</div><div class="line">    const token = getToken()</div><div class="line">    if (token) &#123;</div><div class="line">        const tokenJson = JSON.parse(token)</div><div class="line">        const userId = tokenJson.userId</div><div class="line">        if (userId) &#123;</div><div class="line">            return userId</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return &apos;&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="五、日期显示问题，在ios上2020-09-09-12-12-23-这种格式无法识别"><a href="#五、日期显示问题，在ios上2020-09-09-12-12-23-这种格式无法识别" class="headerlink" title="五、日期显示问题，在ios上2020-09-09 12:12:23,这种格式无法识别"></a>五、日期显示问题，在ios上2020-09-09 12:12:23,这种格式无法识别</h3><p>解决办法：若后台返回日期格式2020-09-09 12:12:23，可以替换replace(/-/g, “/“)，将‘-’换成‘-’，或者直接让后台返回2020/09/09 12:12:23这样的格式，或者让后台返回时间戳，自己格式化想要转换的格式即可</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;最近在做H5开发的时候,发现在ios上总有一些奇奇怪怪的问题,这里就做一些总结&lt;/p&gt;
+&lt;h3 id=&quot;一、使用fastClick的时候输入
+    
+    </summary>
+    
+    
+      <category term="H5" scheme="http://zonectmac.com/tags/H5/"/>
+    
+      <category term="vue" scheme="http://zonectmac.com/tags/vue/"/>
+    
+  </entry>
   
   <entry>
     <title>VUE移动端点击输入框,弹出键盘,底部tab栏被顶起的问题</title>
@@ -40,9 +69,9 @@
     </summary>
     
     
-      <category term="vue" scheme="http://zonectmac.com/tags/vue/"/>
-    
       <category term="H5" scheme="http://zonectmac.com/tags/H5/"/>
+    
+      <category term="vue" scheme="http://zonectmac.com/tags/vue/"/>
     
   </entry>
   
@@ -610,7 +639,7 @@
 <h5 id="1）打开命令行窗口，连接邮件服务器"><a href="#1）打开命令行窗口，连接邮件服务器" class="headerlink" title="　　1）打开命令行窗口，连接邮件服务器"></a>　　<strong>1）打开命令行窗口，连接邮件服务器</strong></h5><p>　　在命令刚窗口输入 telnet smtp.qq.com 25(这里以qq为例，若是163，则是smtp.163.com,25是端口　号，一般情况下不会变)<br>　　如果连接成功，服务器会返回一串字符：220 smtp.qq.com Esmtp QQ Mail Server</p>
 <h5 id="2）向服务器表明身份"><a href="#2）向服务器表明身份" class="headerlink" title="　　2）向服务器表明身份"></a>　　<strong>2）向服务器表明身份</strong></h5><p>　　在命令行输入 helo qq.com如果成功，服务器返回 250 smtp.qq.com<br>(qq.com可以用任何合法字符代替，本人用的名字拼音也通过了)</p>
 <h5 id="3）登录认证"><a href="#3）登录认证" class="headerlink" title="　　3）登录认证"></a>　　<strong>3）登录认证</strong></h5><p>　　 在命令行窗口输入 auth login如果成功，服务器会返回一串字符，类似于：334 VXNlcm5hbWU6，<br>　　（334 是不变的，后面的字母可能会变）<br> 　　接着输入你的邮箱（xxxxx@qq.com）的base64编码之后的字符串然后回车<br>　　如果成功，服务器返回一串字符，类似于：334 UGFzc3dvcmQ6<br>　　（334 是不变的，后面的字母可能会变）<br>　　接着输入你的独立密码（注意是独立密码）的base64编码之后的字符串然后回车，<br>　　如果登录成功，服务器返回一串字符：235 Authentication successful，<br>表示登录成功，如果不能成功登录，请检查账号密码是否正确。</p>
-<h5 id="4）编写邮件"><a href="#4）编写邮件" class="headerlink" title="　　4）编写邮件"></a>　　<strong>4）编写邮件</strong></h5><p>　　输入 mail from:＜<a href="&#x6d;&#97;&#105;&#108;&#x74;&#x6f;&#58;&#20320;&#33258;&#24049;&#30340;&#x90ae;&#31665;&#65292;&#x5c31;&#x662f;&#x4e0a;&#x4e00;&#x6b65;&#x7684;&#30331;&#x5f55;&#37038;&#x7bb1;&#x78;&#120;&#x78;&#64;&#113;&#x71;&#x2e;&#x63;&#x6f;&#x6d;">&#20320;&#33258;&#24049;&#30340;&#x90ae;&#31665;&#65292;&#x5c31;&#x662f;&#x4e0a;&#x4e00;&#x6b65;&#x7684;&#30331;&#x5f55;&#37038;&#x7bb1;&#x78;&#120;&#x78;&#64;&#113;&#x71;&#x2e;&#x63;&#x6f;&#x6d;</a>＞ 回车<br>  　　（冒号和尖括号均为因为半角标点符号）<br>　　若格式不正确，服务器返回501 错误；若格式正确，服务器返回250 Ok。<br>　　输入 rcpt to:＜<a href="&#109;&#97;&#105;&#x6c;&#116;&#x6f;&#x3a;&#25910;&#x4ef6;&#20154;&#x90ae;&#x7bb1;&#65292;&#120;&#x78;&#x78;&#x40;&#x78;&#x78;&#120;&#46;&#120;&#120;&#x78;">&#25910;&#x4ef6;&#20154;&#x90ae;&#x7bb1;&#65292;&#120;&#x78;&#x78;&#x40;&#x78;&#x78;&#120;&#46;&#120;&#120;&#x78;</a> ＞回车<br>　　若格式不正确，服务器返回501错误；若格式正确，服务器返回250 Ok。<br>　　输入data 回车<br>　　 服务器返回 354 End data with <cr><lf>.<cr><lf><br>　　输入from:名字 回车，<br>　　显示在收件人收邮件时的 发件人 位置<br>　　输入 to:名字 回车，<br>　　显示收件人收邮件时的 收件人 位置<br>　　输入 subject:主题 回车，<br>　　邮件主题<br>　　空一行写邮件内容，写完之后换行，输入英文半角状态下的句号 . 表示邮件内容写完了（不要问我正文中如果包含英文半角状态下的句号怎么办）<br>　　服务器返回 250 Ok: queues as<br>　　表示邮件已经发送<br>如 图：<br>　　<br><img src="http://upload-images.jianshu.io/upload_images/2953420-ddb49e1951cee355.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></lf></cr></lf></cr></p>
+<h5 id="4）编写邮件"><a href="#4）编写邮件" class="headerlink" title="　　4）编写邮件"></a>　　<strong>4）编写邮件</strong></h5><p>　　输入 mail from:＜<a href="&#109;&#x61;&#x69;&#108;&#x74;&#x6f;&#58;&#x4f60;&#x81ea;&#24049;&#30340;&#x90ae;&#31665;&#xff0c;&#x5c31;&#x662f;&#19978;&#19968;&#x6b65;&#x7684;&#x767b;&#24405;&#37038;&#x7bb1;&#x78;&#x78;&#120;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;">&#x4f60;&#x81ea;&#24049;&#30340;&#x90ae;&#31665;&#xff0c;&#x5c31;&#x662f;&#19978;&#19968;&#x6b65;&#x7684;&#x767b;&#24405;&#37038;&#x7bb1;&#x78;&#x78;&#120;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;</a>＞ 回车<br>  　　（冒号和尖括号均为因为半角标点符号）<br>　　若格式不正确，服务器返回501 错误；若格式正确，服务器返回250 Ok。<br>　　输入 rcpt to:＜<a href="&#x6d;&#97;&#x69;&#108;&#x74;&#x6f;&#58;&#25910;&#20214;&#20154;&#37038;&#31665;&#xff0c;&#120;&#120;&#x78;&#x40;&#120;&#120;&#x78;&#x2e;&#120;&#x78;&#x78;">&#25910;&#20214;&#20154;&#37038;&#31665;&#xff0c;&#120;&#120;&#x78;&#x40;&#120;&#120;&#x78;&#x2e;&#120;&#x78;&#x78;</a> ＞回车<br>　　若格式不正确，服务器返回501错误；若格式正确，服务器返回250 Ok。<br>　　输入data 回车<br>　　 服务器返回 354 End data with <cr><lf>.<cr><lf><br>　　输入from:名字 回车，<br>　　显示在收件人收邮件时的 发件人 位置<br>　　输入 to:名字 回车，<br>　　显示收件人收邮件时的 收件人 位置<br>　　输入 subject:主题 回车，<br>　　邮件主题<br>　　空一行写邮件内容，写完之后换行，输入英文半角状态下的句号 . 表示邮件内容写完了（不要问我正文中如果包含英文半角状态下的句号怎么办）<br>　　服务器返回 250 Ok: queues as<br>　　表示邮件已经发送<br>如 图：<br>　　<br><img src="http://upload-images.jianshu.io/upload_images/2953420-ddb49e1951cee355.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></lf></cr></lf></cr></p>
 <h3 id="二、vbScript-发送邮件"><a href="#二、vbScript-发送邮件" class="headerlink" title="二、vbScript 发送邮件"></a>二、vbScript 发送邮件</h3><blockquote>
 <p>vbScript 是个比较老的语言，这里只是玩下，建议还是用JS啦。。。。</p>
 </blockquote>
